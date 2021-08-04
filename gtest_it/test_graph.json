@@ -1,0 +1,76 @@
+
+[
+    {
+        "Name": "INPUT_1", "Active": 0, "Type": "Filter",
+        "Next":[
+            {"Name": "FILTER", "Active": 2, "Signal":0},
+            {"Name": "FILTER", "Active": 3, "Signal":0},
+            {"Name": "FILTER", "Active": 4, "Signal":0},
+            {"Name": "FILTER", "Active": 5, "Signal":0},
+            {"Name": "FILTER", "Active": 6, "Signal":0},
+            {"Name": "FILTER", "Active": 7, "Signal":0},
+            {"Name": "FILTER", "Active": 8, "Signal":0},
+            {"Name": "FILTER", "Active": 9, "Signal":0},
+            {"Name": "FILTER", "Active": 10, "Signal":0},
+            {"Name": "FILTER", "Active": 11, "Signal":0},
+            {"Name": "FILTER", "Active": 12, "Signal":0}
+        ],
+        "Prev":[{"Name": "IN", "Active": -1, "Signal":0}]
+    },{
+        "Name": "INPUT_2",        "Active": 1,        "Type": "Filter",
+        "Next":[
+            {"Name": "FILTER", "Active": 10, "Signal":0},
+            {"Name": "FILTER", "Active": 11, "Signal":0},
+            {"Name": "FILTER", "Active": 12, "Signal":0}
+        ],
+        "Prev":[{"Name": "IN", "Active": -1, "Signal":0}]
+    },
+    {
+        "Name": "FILTER_1",        "Active": 2,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_1", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },{
+        "Name": "FILTER_2",        "Active": 3,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_2", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },{
+        "Name": "FILTER_3",        "Active": 4,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_3", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },{
+        "Name": "FILTER_4",        "Active": 5,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_4", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },{
+        "Name": "FILTER_5",        "Active": 6,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_5", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },{
+        "Name": "FILTER_6",        "Active": 7,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_6", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },{
+        "Name": "FILTER_7",        "Active": 8,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_7", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },{
+        "Name": "FILTER_8",        "Active": 9,        "Type": "Filter",
+        "Next":[{"Name": "OUT_FILTER_8", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0}]
+    },
+
+    {
+        "Name": "ESTIMATOR_1",        "Active": 10,        "Type": "Estimator",
+        "Next":[{"Name": "OUT_ESTIMATOR_1", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0},{"Name": "INPUT_2", "Active": 1, "Signal":0}]
+    },{
+        "Name": "ESTIMATOR_1",        "Active": 11,        "Type": "Estimator",
+        "Next":[{"Name": "OUT_ESTIMATOR_1", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0},{"Name": "INPUT_2", "Active": 1, "Signal":0}]
+    },{
+        "Name": "ESTIMATOR_1",        "Active": 12,        "Type": "Estimator",
+        "Next":[{"Name": "OUT_ESTIMATOR_1", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT_1", "Active": 0, "Signal":0},{"Name": "INPUT_2", "Active": 1, "Signal":0}]
+    }
+
+]

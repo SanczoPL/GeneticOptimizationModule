@@ -1,0 +1,8 @@
+[
+    {"Name": "None"},
+    {"Name": "None"},
+    {"Name": "None"},
+    {"Name": "CodeStats2014", "Width": 50,"Height":50, "DronSize":5},
+    {"Name": "BGFitness", "FitnessFunction": "Accuracy_Recall_Precision_FMeasure"},
+    {"Name": "Preview", "Path": "mp4","FPS":10.0, "Width":900, "Height":300,  "Type":".mp4", "Iter": 1}
+]

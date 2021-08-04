@@ -1,0 +1,16 @@
+{
+  
+  "FromVideo": true,
+
+  "DatasetWin32": 
+  {
+    "PathToDataset": "E:\\repo\\datasets\\NORM0010_1280x720_120\\",
+    "ConfigName": "config.json"
+  },
+  "DatasetLinux": 
+  {
+    "PathToDataset": "/home/gm/repo/datasets/NORM0010_1280x720_120/",
+    "ConfigName": "config.json"
+  }
+}
+

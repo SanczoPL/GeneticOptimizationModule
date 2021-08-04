@@ -1,0 +1,34 @@
+{
+	"Graph_estimator":
+	{
+		"SavePreprocessingDataset": false,
+
+		"DatasetWin32": 
+		{
+			"PathToDataset": "E:\\repo\\OptimizationDataset\\NORM0006_1280x720_30FPS\\",
+			"ConfigName": "config.json"
+		},
+		"DatasetLinux": 
+		{
+			"PathToDataset2": "/home/matczak/repo/OptimizationDataset/NORM0010_1280x720_120FPS/",
+			"PathToDataset": "/home/matczak/repo/OptimizationDataset/NORM0006_1280x720_30FPS/",
+			"ConfigName": "config.json"
+		}
+	},
+	"Graph_estimator_with_filters":
+	{
+		"SavePreprocessingDataset": false,
+
+		"DatasetWin32": 
+		{
+			"PathToDataset": "E:\\repo\\OptimizationDataset\\NORM0006_1280x720_30FPS\\",
+			"ConfigName": "config.json"
+		},
+		"DatasetLinux": 
+		{
+			"PathToDataset2": "/home/matczak/repo/OptimizationDataset/NORM0010_1280x720_120FPS/",
+			"PathToDataset": "/home/matczak/repo/OptimizationDataset/NORM0006_1280x720_30FPS/",
+			"ConfigName": "config.json"
+		}
+	}
+}
