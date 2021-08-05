@@ -100,6 +100,9 @@ bool MainLoop::checkAndCreateFolder(QString name)
 
 void MainLoop::createConfig(QJsonObject const& a_config)
 {
+	#ifdef DEBUG_CONFIG
+	Logger->debug("MainLoop::createConfig()");
+	#endif
 	QTime now = QTime::currentTime();
     int randNumber = now.msecsSinceStartOfDay();
 
@@ -147,11 +150,11 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							config[DRON_RAND_SEED] = randNumber;
 
 							config[DRON_NOISE_START] = double(i);
-							config[DRON_NOISE_STOP] = double(i + 0.06);
+							config[DRON_NOISE_STOP] = double(i + 0.01);
 							config[DRON_NOISE_DELTA] = double(0.01);
 
 							config[DRON_CONTRAST_START] = 100.00;
-							config[DRON_CONTRAST_STOP] = 100.06;
+							config[DRON_CONTRAST_STOP] = 100.01;
 							config[DRON_CONTRAST_DELTA] = 0.01;
 
 							obj[CONFIG] = config;
@@ -176,7 +179,9 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 
 void MainLoop::createStartupThreads()
 {
-    Logger->trace("MainLoop::createStartupThreads()");
+    #ifdef DEBUG_CONFIG
+	Logger->debug("MainLoop::createStartupThreads()");
+	#endif
 	m_dataMemoryThread = new QThread();
 	m_dataMemory = new DataMemory();
 	connect(m_dataMemory, &DataMemory::memoryLoaded, this, &MainLoop::onMemoryLoaded);
@@ -228,9 +233,12 @@ void MainLoop::createStartupThreads()
 	connect(m_genetic, &Genetic::configureLoggerJSON, m_fileLoggerJSON, &FileLogger::configure);
 
 	m_timer = new QTimer(this);
-	m_timer->start(1000);
+	m_timer->start(100);
 	connect(m_timer, SIGNAL(timeout()), this, SLOT(onUpdate()));
 	connect(m_genetic, &Genetic::newConfig, this, &MainLoop::onNextConfig);
+	#ifdef DEBUG_CONFIG
+	Logger->debug("MainLoop::createStartupThreads() done");
+	#endif
 }
 
 void MainLoop::createThreads()
@@ -296,7 +304,9 @@ void MainLoop::onUpdate()
 {
 	if (m_firstTime)
 	{
-        Logger->trace("MainLoop::onUpdate() firstTime");
+        #ifdef DEBUG_CONFIG
+		Logger->debug("MainLoop::onUpdate() m_firstTime");
+		#endif
 		m_firstTime = false;
 		createConfig(m_config);
 		m_validTask = true;
@@ -308,7 +318,9 @@ void MainLoop::onUpdate()
 
 	if (m_validTask)
 	{
-        Logger->trace("MainLoop::onUpdate() m_validTask");
+        #ifdef DEBUG_CONFIG
+		Logger->debug("MainLoop::onUpdate() m_validTask");
+		#endif
 		if (m_geneticConfigs.size() > 0)
 		{
 			m_dataMemory->preprocess(m_geneticConfigs[0].preprocess);
@@ -321,7 +333,9 @@ void MainLoop::onUpdate()
 	}
 	if (m_dataMemoryLoaded && m_geneticConfigured)
 	{
-		Logger->trace("MainLoop: emit process to genetic");
+		#ifdef DEBUG_CONFIG
+		Logger->debug("MainLoop::onUpdate() emit process to genetic");
+		#endif
 		m_genetic->process();
 	}
 }
