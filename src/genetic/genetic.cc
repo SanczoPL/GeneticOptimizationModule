@@ -120,7 +120,7 @@ void Genetic::configure(QJsonObject const& a_config, QJsonObject  const& a_bound
 	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/log_" + QString::number(m_dronNoise) 
 	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
 
-	Logger->info("Genetic::configure() file:{}", (m_fileName + ".txt").toStdString());
+	Logger->debug("Genetic::configure() file:{}", (m_fileName + ".txt").toStdString());
 	emit(configureLogger((m_fileName + ".txt"), false));
 	emit(configureLoggerJSON((m_fileName + ".json"), false));
 	
@@ -171,26 +171,34 @@ void Genetic::loadFromConfig(QJsonObject const& a_config)
 }
 void Genetic::onSignalOk(struct fitness fs, qint32 slot)
 {
-	Logger->trace("Genetic::signalOk slot:{}", slot);
+	
+	#ifdef DEBUG
+	Logger->debug("Genetic::signalOk slot:{}", slot);
+	#endif
+
 	if (m_threadProcessing[slot] == true)
 	{
 		m_threadProcessing[slot] = false;
-		Logger->trace("GeneticOptimization::firstMan[{}]", slot);
 		m_geneticOperation.m_fitness[m_actualManProcessing[slot]] = fs;
-		Logger->trace("m_actualManProcessing[{}]:{}",slot,m_actualManProcessing[slot]);
 		m_bitFinishTest++;
 	}
-	Logger->trace("m_bitFinishTest:{}/{}", m_bitFinishTest, m_populationSize);
+	#ifdef DEBUG
+	Logger->debug("m_bitFinishTest:{}/{}", m_bitFinishTest, m_populationSize);
+	#endif
 }
 
 void Genetic::process()
 {
-	Logger->trace("Genetic::process() ");
+	#ifdef DEBUG
+	Logger->debug("Genetic::process() ");
+	#endif
 	for (int slot = 0; slot < m_testCaseVector.size(); slot++)
 	{
 		if (m_threadProcessing[slot] == false)
 		{
-			Logger->trace("Genetic::process() slot[{}] empty:", slot);
+			#ifdef DEBUG
+			Logger->debug("Genetic::process() slot[{}] empty:", slot);
+			#endif
 			for (int pop = 0; pop < m_populationSize; pop++)
 			{
 				if (m_bitFinish[pop] == false)
@@ -199,11 +207,12 @@ void Genetic::process()
 					m_threadProcessing[slot] = true;
 					m_actualManProcessing[slot] = pop;
 					m_testCaseVector[slot]->configureAndStartSlot(m_graph, m_geneticOperation.m_vectorBits[pop], m_postprocess, slot);
-					Logger->trace("Genetic::process() starting processing[{}] by population:{}", slot, pop);
-					
+					#ifdef DEBUG
+						Logger->debug("Genetic::process() starting processing[{}] by population:{}", slot, pop);
+					#endif
 					#ifdef DEBUG
 						qDebug() << "starting processing m_graph:" << m_graph;
-						qDebug() << "starting processing m_vectorBits[pop]:" << m_vectorBits[pop];
+						qDebug() << "starting processing m_vectorBits[pop]:" << m_geneticOperation.m_vectorBits[pop];
 						qDebug() << "starting processing m_postprocess:" << m_postprocess;
 					#endif
 					break;
@@ -217,7 +226,8 @@ void Genetic::process()
 		Logger->debug("m_bitFinishTest >= m_populationSize ");
 		for (int i = 0; i < m_geneticOperation.m_fitness.size(); i++)
 		{
-			Logger->debug("Genetic::process() m_fitness  fitness{:3.7f}, FMeasure:{}, Recall:{}", m_fitness[i].fitness, m_fitness[i].FMeasure, m_fitness[i].Recall);
+			Logger->debug("Genetic::process() m_fitness  fitness{:3.7f}, FMeasure:{}, Recall:{}", m_geneticOperation.m_fitness[i].fitness, 
+			m_geneticOperation.m_fitness[i].FMeasure, m_geneticOperation.m_fitness[i].Recall);
 		}
 		#endif
 		Genetic::iteration();
@@ -226,12 +236,15 @@ void Genetic::process()
 
 void Genetic::iteration()
 {
-	Logger->trace("iteration():{}", m_populationIteration);
+	#ifdef DEBUG
+	Logger->debug("iteration():{}", m_populationIteration);
+	#endif
 	m_populationIteration++;
 	#ifdef DEBUG
 	for (int i = 0; i < m_geneticOperation.m_fitness.size(); i++)
 	{
-		Logger->debug("Genetic::process() m_fitness  m_fitness{:3.7f}, FMeasure:{}, Recall:{}", m_fitness[i].fitness, m_fitness[i].FMeasure, m_fitness[i].Recall);
+		Logger->debug("Genetic::process() m_fitness  m_fitness{:3.7f}, FMeasure:{}, Recall:{}", 
+		m_geneticOperation.m_fitness[i].fitness, m_geneticOperation.m_fitness[i].FMeasure, m_geneticOperation.m_fitness[i].Recall);
 	}
 	#endif
 	m_geneticOperation.elitist();
@@ -364,7 +377,7 @@ void Genetic::handleBestPopulation()
 
 void Genetic::logPopulation()
 {
-	if ((m_bestNotChange % 50) == 0)
+	if ((m_bestNotChange % 2) == 0)
 	{
 		m_timer.stop();
 		Logger->info(

@@ -97,7 +97,9 @@ fitness Case::onConfigureAndStart(QJsonArray const& a_graph, QJsonArray const& a
 
 void Case::clearDataForNextIteration()
 {
-	Logger->trace("Case::clearDataForNextIteration()");
+	#ifdef DEBUG_CASE
+	Logger->debug("Case::clearDataForNextIteration()");
+	#endif
 	m_data.clear();
 	m_outputData.clear();
 	//m_outputDataVector.clear();
@@ -107,7 +109,9 @@ void Case::processing(const int iteration)
 {
 	Case::clearDataForNextIteration();
 	cv::Mat input = m_dataMemory->clean(iteration).clone();
-	Logger->trace("Case::processing() iteration:{}", iteration);
+	#ifdef DEBUG_CASE
+	Logger->debug("Case::processing() iteration:{}", iteration);
+	#endif
 
 	#ifdef DEBUG_CASE
 		Logger->debug("Case::processing() graph[{}] Processing:", iteration);
@@ -119,7 +123,7 @@ void Case::processing(const int iteration)
 		const QJsonArray _prevActive = _obj[PREV].toArray();
 		const QJsonArray _nextActive = _obj[NEXT].toArray();
 		#ifdef DEBUG_CASE
-		Logger->info("Case::processing() i:{}, _prevActive.size:{}", i, _prevActive.size());
+		Logger->debug("Case::processing() i:{}, _prevActive.size:{}", i, _prevActive.size());
 		#endif	
 		if (m_graph_processing.checkIfLoadInputs(_prevActive, dataVec, input))
 		{
@@ -157,7 +161,7 @@ void Case::processing(const int iteration)
 	cv::Mat inputImage = m_dataMemory->clean(iteration).clone();
 	m_outputData.push_back(inputImage.clone());
 	#ifdef DEBUG_CASE
-	Logger->info("Case::processing() postprocess iteration:{}, m_outputData.size:{}", iteration, m_outputData.size());
+	Logger->debug("Case::processing() postprocess iteration:{}, m_outputData.size:{}", iteration, m_outputData.size());
 	#endif
 	
 	#ifdef DEBUG_OPENCV
@@ -293,7 +297,7 @@ fitness Case::process()
 	{
 		Case::processing(iteration);
 		
-		if (iteration>50)
+		if (iteration>23)
 		{
 			Case::postprocessing();
 		}
