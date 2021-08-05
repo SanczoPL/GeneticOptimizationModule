@@ -76,10 +76,15 @@ void Case::configure(QJsonArray const& a_graph, QJsonArray const& a_config, QJso
 
 void Case::onConfigureAndStartSlot(QJsonArray const& a_graph, QJsonArray const& a_config, QJsonArray const& a_postprocess, int processSlot)
 {
+	#ifdef DEBUG
+		Logger->debug("Case::onConfigureAndStartSlot()");
+	#endif
 	configure(a_graph, a_config, a_postprocess);
 	fitness fs = Case::process();
 	emit(signalOk(fs, processSlot));
-	Logger->trace("Case::onConfigureAndStart() done");
+	#ifdef DEBUG
+		Logger->debug("Case::onConfigureAndStartSlot() done");
+	#endif
 }
 
 fitness Case::onConfigureAndStart(QJsonArray const& a_graph, QJsonArray const& a_config, QJsonArray const& a_postprocess)
@@ -92,6 +97,10 @@ fitness Case::onConfigureAndStart(QJsonArray const& a_graph, QJsonArray const& a
 	#ifdef DEBUG_SINGLE_CASE
 		qDebug() << "fitness.fitness:" << fs.fitness;
 	#endif
+	#ifdef DEBUG_SINGLE_CASE
+		Logger->debug("Case::onConfigureAndStart() done");
+	#endif
+
 	return fs;
 }
 
