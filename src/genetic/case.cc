@@ -117,7 +117,7 @@ void Case::clearDataForNextIteration()
 void Case::processing(const int iteration)
 {
 	Case::clearDataForNextIteration();
-	cv::Mat input = m_dataMemory->clean(iteration).clone();
+	cv::Mat input = m_dataMemory->cleanTrain(iteration).clone();
 	#ifdef DEBUG_CASE
 	Logger->debug("Case::processing() iteration:{}", iteration);
 	#endif
@@ -165,9 +165,9 @@ void Case::processing(const int iteration)
 	#endif
 	
 
-	cv::Mat gt = m_dataMemory->gt(iteration).clone();
+	cv::Mat gt = m_dataMemory->gtTrain(iteration).clone();
 	m_outputData.push_back(gt.clone());
-	cv::Mat inputImage = m_dataMemory->clean(iteration).clone();
+	cv::Mat inputImage = m_dataMemory->cleanTrain(iteration).clone();
 	m_outputData.push_back(inputImage.clone());
 	#ifdef DEBUG_CASE
 	Logger->debug("Case::processing() postprocess iteration:{}, m_outputData.size:{}", iteration, m_outputData.size());
