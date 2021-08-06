@@ -378,7 +378,7 @@ void Genetic::handleBestPopulation()
 
 void Genetic::logPopulation()
 {
-	if ((m_bestNotChange % 2) == 0)
+	if ((m_bestNotChange % 50) == 0)
 	{
 		m_timer.stop();
 		Logger->info(
