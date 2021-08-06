@@ -26,13 +26,15 @@ class Case : public QObject
 public:
 	explicit Case(DataMemory* data);
 	fitness onConfigureAndStart(QJsonArray const& a_graph, QJsonArray const& a_config, QJsonArray const& a_postprocess);
+	fitness onConfigureAndStartTest(QJsonArray const& a_graph, QJsonArray const& a_config, QJsonArray const& a_postprocess);
 
 public slots:
 	void onUpdate();
 	void onConfigureAndStartSlot(QJsonArray const& a_graph, QJsonArray const& a_config, QJsonArray const& a_postprocess, int processSlot);
+	
 
 private:
-	fitness process();
+	fitness process(bool test, int initFrames);
 	void configure(QJsonArray const& a_graph, QJsonArray const& a_config, QJsonArray const& a_postprocess);
 	void clearDataForNextIteration();
 	void processing(const int iteration);

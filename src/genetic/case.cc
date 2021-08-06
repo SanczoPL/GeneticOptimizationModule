@@ -80,7 +80,7 @@ void Case::onConfigureAndStartSlot(QJsonArray const& a_graph, QJsonArray const& 
 		Logger->debug("Case::onConfigureAndStartSlot()");
 	#endif
 	configure(a_graph, a_config, a_postprocess);
-	fitness fs = Case::process();
+	fitness fs = Case::process(false, 50);
 	emit(signalOk(fs, processSlot));
 	#ifdef DEBUG
 		Logger->debug("Case::onConfigureAndStartSlot() done");
@@ -93,7 +93,7 @@ fitness Case::onConfigureAndStart(QJsonArray const& a_graph, QJsonArray const& a
 		Logger->debug("Case::onConfigureAndStart()");
 	#endif
 	configure(a_graph, a_config, a_postprocess);
-	fitness fs = Case::process();
+	fitness fs = Case::process(false, 50);
 	#ifdef DEBUG_SINGLE_CASE
 		qDebug() << "fitness.fitness:" << fs.fitness;
 	#endif
@@ -103,6 +103,24 @@ fitness Case::onConfigureAndStart(QJsonArray const& a_graph, QJsonArray const& a
 
 	return fs;
 }
+
+fitness Case::onConfigureAndStartTest(QJsonArray const& a_graph, QJsonArray const& a_config, QJsonArray const& a_postprocess)
+{
+	#ifdef DEBUG_SINGLE_CASE
+		Logger->debug("Case::onConfigureAndStart()");
+	#endif
+	configure(a_graph, a_config, a_postprocess);
+	fitness fs = Case::process(true, 50);
+	#ifdef DEBUG_SINGLE_CASE
+		qDebug() << "fitness.fitness:" << fs.fitness;
+	#endif
+	#ifdef DEBUG_SINGLE_CASE
+		Logger->debug("Case::onConfigureAndStart() done");
+	#endif
+
+	return fs;
+}
+
 
 void Case::clearDataForNextIteration()
 {
@@ -291,27 +309,36 @@ void Case::deleteData()
 	}
 }
 
-fitness Case::process()
+fitness Case::process(bool test, int initFrames)
 {
+	if(test)
+	{
+		Logger->debug("Case::process() testing dataset");
+	}
 	#ifdef DEBUG_CASE
-		Logger->debug("Case::onConfigureAndStart()");
-		Logger->debug("Case::process() start processing {} frames", m_dataMemory->getSizeCleanTrain());
 		Logger->debug("Case::process() m_block,size:{}", m_block.size());
 	#endif
+
 	m_time = 0;
 	m_postTime = 0;
+
+	int size =  m_dataMemory->getSizeCleanTrain();
+	if (test)
+	{
+		size = m_dataMemory->getSizeCleanTest();
+	}
 	
-	
-	for (int iteration = 0; iteration < m_dataMemory->getSizeCleanTrain(); iteration++)
+	for (int iteration = 0; iteration < size; iteration++)
 	{
 		Case::processing(iteration);
 		
-		if (iteration>23)
+		if (iteration>initFrames)
 		{
 			Case::postprocessing();
 		}
 	}
 	#ifdef DEBUG_POSTPROCESSING
+	Logger->debug("Case::process() start processing size:{} frames ", size);
 	Logger->debug("Case::process() processing time:{}", m_time);
 	Logger->debug("Case::process() post processing timePost:{}", m_postTime);
 	#endif

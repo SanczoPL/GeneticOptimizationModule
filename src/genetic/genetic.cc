@@ -371,7 +371,8 @@ void Genetic::handleBestPopulation()
 				#endif
 			}
 		}
-		m_testCaseBest->onConfigureAndStart(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
+		//m_testCaseBest->onConfigureAndStart(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
+		m_testCaseBest->onConfigureAndStartTest(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
 	}
 }
 
