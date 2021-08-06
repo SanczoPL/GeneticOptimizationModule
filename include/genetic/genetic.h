@@ -25,7 +25,8 @@ class Genetic : public QObject {
 	Q_OBJECT
   
 	public:
-		Genetic(QVector<Case*> testCaseVector, DataMemory* data);
+		Genetic(QVector<Case*> testCaseVector, DataMemory* data, FileLogger *fileLoggerTrain, 
+		FileLogger *fileLoggerTest, FileLogger *fileLoggerJSON);
 		~Genetic();
 		void process();
 
@@ -33,9 +34,11 @@ class Genetic : public QObject {
 		void geneticConfigured();
 		void newConfig();
 		void logJsonBest(QJsonObject json);
-		void appendToFileLogger(QStringList list);
-		void configureLogger(QString name, bool additionalLogs);
-		void configureLoggerJSON(QString name, bool additionalLogs);
+		void appendToFileLoggerTrain(QStringList list);
+		void appendToFileLoggerTest(QStringList list);
+		void configureLoggerTest(QString name);
+		void configureLoggerTrain(QString name);
+		void configureLoggerJSON(QString name);
 
 	public slots:
 		void configure(QJsonObject const& a_config, QJsonObject  const& a_boundsGraph, QJsonArray  const& a_graph, 
@@ -45,7 +48,7 @@ class Genetic : public QObject {
 	private:
 		void loadFromConfig(QJsonObject const& a_config);
 		void iteration();
-		void logPopulation();
+		void logPopulation(QString id, fitness fs, FileLogger * fileLogger);
 		void clearData();
 		void handleBestPopulation();
 
@@ -83,10 +86,11 @@ class Genetic : public QObject {
 		double m_fitnessThreshold{};
 		double m_bestChangeLast{};
 		double m_delta{};
-
-		FileLogger *m_fileLogger;
-		FileLogger* m_fileLoggerJSON;
 		
+		FileLogger *m_fileLoggerTrain;
+		FileLogger *m_fileLoggerTest;
+		FileLogger *m_fileLoggerJSON;
+
 		GeneticOperation m_geneticOperation;
 		Case* m_testCaseBest;
 

@@ -37,8 +37,12 @@ constexpr auto DRON_CONTRAST_STOP{ "DronContrastStop" };
 constexpr auto DRON_CONTRAST_DELTA{ "DronContrastDelta" };
 
 
-Genetic::Genetic(QVector<Case*> testCaseVector, DataMemory* data)
+Genetic::Genetic(QVector<Case*> testCaseVector, DataMemory* data, FileLogger *fileLoggerTrain, 
+		FileLogger *fileLoggerTest, FileLogger *fileLoggerJSON)
 	: m_testCaseVector(testCaseVector),
+	m_fileLoggerTrain(fileLoggerTrain),
+	m_fileLoggerTest(fileLoggerTest),
+	m_fileLoggerJSON(fileLoggerJSON),
 	m_dataMemory(data),
 	m_randomGenerator{ new QRandomGenerator(123) },
 	m_configured{ false },
@@ -117,12 +121,21 @@ void Genetic::configure(QJsonObject const& a_config, QJsonObject  const& a_bound
 
 	qint64 _nowTime = qint64(QDateTime::currentMSecsSinceEpoch());
 
-	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/log_" + QString::number(m_dronNoise) 
+	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/train_" + QString::number(m_dronNoise) 
 	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
-
+	m_fileLoggerTrain->onConfigure(m_fileName + ".txt");
 	Logger->debug("Genetic::configure() file:{}", (m_fileName + ".txt").toStdString());
-	emit(configureLogger((m_fileName + ".txt"), false));
-	emit(configureLoggerJSON((m_fileName + ".json"), false));
+
+	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/test_" + QString::number(m_dronNoise) 
+	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
+	m_fileLoggerTest->onConfigure(m_fileName + ".txt");
+	Logger->debug("Genetic::configure() file:{}", (m_fileName + ".txt").toStdString());
+
+	//emit(configureLogger((m_fileName + ".txt"), false));
+	m_fileLoggerJSON->onConfigure(m_fileName + ".json");
+
+	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/mp4_" + QString::number(m_dronNoise) 
+	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
 	
 	m_configured = true;
 	emit(geneticConfigured());
@@ -330,8 +343,10 @@ void Genetic::iteration()
 		m_bestNotChange = 0;
 		m_bestChangeLast = m_geneticOperation.m_fitness[m_populationSize].fitness;
 	}
-	logPopulation();
-
+	if ((m_bestNotChange % 50) == 0)
+	{
+		logPopulation(QString::number(m_populationIteration), m_geneticOperation.m_fitness[m_populationSize], m_fileLoggerTrain);
+	}
 	if (m_populationIteration >= m_maxIteration ||  m_bestNotChange >= m_maxBestNotChange || 
 		m_geneticOperation.m_fitness[m_populationSize].fitness >= m_fitnessThreshold)
 	{
@@ -372,41 +387,31 @@ void Genetic::handleBestPopulation()
 			}
 		}
 		//m_testCaseBest->onConfigureAndStart(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
-		m_testCaseBest->onConfigureAndStartTest(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
+		fitness fs = m_testCaseBest->onConfigureAndStartTest(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
+		Genetic::logPopulation("Test", fs, m_fileLoggerTest);
 	}
 }
 
-void Genetic::logPopulation()
+void Genetic::logPopulation(QString id, fitness fs, FileLogger * fileLogger)
 {
-	if ((m_bestNotChange % 50) == 0)
-	{
-		m_timer.stop();
-		Logger->info(
-			"ID:{:04d} B:{:f} (fn:{},fp:{},tn:{},tp:{}) time:{:3.0f}[ms] ",
-			m_populationIteration, m_geneticOperation.m_fitness[m_populationSize].fitness,
-			m_geneticOperation.m_fitness[m_populationSize].fn, m_geneticOperation.m_fitness[m_populationSize].fp,
-			m_geneticOperation.m_fitness[m_populationSize].tn, m_geneticOperation.m_fitness[m_populationSize].tp,
-			m_timer.getTimeMilli());
+	m_timer.stop();
+	Logger->info(
+		"ID:{} B:{:f} (fn:{},fp:{},tn:{},tp:{}) time:{:3.0f}[ms] ",
+		id.toStdString(), fs.fitness,
+		fs.fn, fs.fp,
+		fs.tn, fs.tp,
+		m_timer.getTimeMilli());
 
-		QStringList list;
-		list.push_back(QString::number(m_populationIteration)+ " ");
-		list.push_back(QString().setNum(m_geneticOperation.m_fitness[m_populationSize].fitness, 'f', 4) + " ");
+	QStringList list;
+	list.push_back(id + " ");
+	list.push_back(QString().setNum(fs.fitness, 'f', 4) + " ");
 
-		list.push_back(QString::number(m_geneticOperation.m_fitness[m_populationSize].fn) + " ");
-		list.push_back(QString::number(m_geneticOperation.m_fitness[m_populationSize].fp) + " ");
-		list.push_back(QString::number(m_geneticOperation.m_fitness[m_populationSize].tn) + " ");
-		list.push_back(QString::number(m_geneticOperation.m_fitness[m_populationSize].tp) + " ");
-		list.push_back(QString().setNum(m_timer.getTimeMilli(), 'f', 0) + " ");
-		list.push_back("\n");
-		emit(appendToFileLogger(list));
-		m_timer.start();
-
-		#ifdef DEBUG
-		qDebug() << "best:" << endl;
-		for (qint32 man = 0; man < m_geneticOperation.m_vectorBits[m_populationSize].size(); man++)
-		{
-			qDebug() << "block[" << man << "]:" << m_geneticOperation.m_vectorBits[m_populationSize][man];
-		}
-		#endif
-	}
+	list.push_back(QString::number(fs.fn) + " ");
+	list.push_back(QString::number(fs.fp) + " ");
+	list.push_back(QString::number(fs.tn) + " ");
+	list.push_back(QString::number(fs.tp) + " ");
+	list.push_back(QString().setNum(m_timer.getTimeMilli(), 'f', 0) + " ");
+	list.push_back("\n");
+	fileLogger->onAppendFileLogger(list);
+	m_timer.start();
 }

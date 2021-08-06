@@ -150,11 +150,11 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							config[DRON_RAND_SEED] = randNumber;
 
 							config[DRON_NOISE_START] = double(i);
-							config[DRON_NOISE_STOP] = double(i + 0.01);
+							config[DRON_NOISE_STOP] = double(i + 0.02);
 							config[DRON_NOISE_DELTA] = double(0.01);
 
 							config[DRON_CONTRAST_START] = 100.00;
-							config[DRON_CONTRAST_STOP] = 100.02;
+							config[DRON_CONTRAST_STOP] = 100.03;
 							config[DRON_CONTRAST_DELTA] = 0.01;
 
 							obj[CONFIG] = config;
@@ -202,8 +202,26 @@ void MainLoop::createStartupThreads()
 		connect(m_threadsVector[i], &QThread::finished, m_caseVector[i], &QObject::deleteLater);
 	}
 	
+	m_fileLoggerTrainThread = new QThread();
+	m_fileLoggerTrain = new FileLogger() ;
+	m_fileLoggerTrain->moveToThread(m_fileLoggerTrainThread);
+	connect(m_fileLoggerTrainThread, &QThread::finished, m_fileLoggerTrain, &QObject::deleteLater);
+	m_fileLoggerTrainThread->start();
+
+	m_fileLoggerTestThread = new QThread();
+	m_fileLoggerTest = new FileLogger() ;
+	m_fileLoggerTest->moveToThread(m_fileLoggerTestThread);
+	connect(m_fileLoggerTestThread, &QThread::finished, m_fileLoggerTest, &QObject::deleteLater);
+	m_fileLoggerTestThread->start();
+
+	m_fileLoggerJSONThread = new QThread();
+	m_fileLoggerJSON = new FileLogger();
+	m_fileLoggerJSON->moveToThread(m_fileLoggerJSONThread);
+	connect(m_fileLoggerJSONThread, &QThread::finished, m_fileLoggerJSON, &QObject::deleteLater);
+	m_fileLoggerJSONThread->start();
+
 	m_geneticThread = new QThread();
-	m_genetic = new Genetic(m_caseVector, m_dataMemory);
+	m_genetic = new Genetic(m_caseVector, m_dataMemory, m_fileLoggerTrain, m_fileLoggerTest, m_fileLoggerJSON);
 	m_genetic->moveToThread(m_geneticThread);
 	connect(m_geneticThread, &QThread::finished, m_genetic, &QObject::deleteLater);
 	m_geneticThread->start();
@@ -212,25 +230,6 @@ void MainLoop::createStartupThreads()
     {
 		connect(m_caseVector[i], &Case::signalOk, m_genetic, &Genetic::onSignalOk);
 	}
-
-
-	m_fileLoggerThread = new QThread();
-	m_fileLogger = new FileLogger() ;
-	m_fileLogger->moveToThread(m_fileLoggerThread);
-	connect(m_fileLoggerThread, &QThread::finished, m_fileLogger, &QObject::deleteLater);
-	m_fileLoggerThread->start();
-
-	m_fileLoggerJSONThread = new QThread();
-	m_fileLoggerJSON = new FileLogger();
-	m_fileLoggerJSON->moveToThread(m_fileLoggerJSONThread);
-	connect(m_fileLoggerJSONThread, &QThread::finished, m_fileLoggerJSON, &QObject::deleteLater);
-	m_fileLoggerJSONThread->start();
-
-	connect(m_genetic, &Genetic::appendToFileLogger, m_fileLogger, &FileLogger::appendFileLogger);
-	connect(m_genetic, &Genetic::logJsonBest, m_fileLoggerJSON, &FileLogger::logJsonBest);
-
-	connect(m_genetic, &Genetic::configureLogger, m_fileLogger, &FileLogger::configure);
-	connect(m_genetic, &Genetic::configureLoggerJSON, m_fileLoggerJSON, &FileLogger::configure);
 
 	m_timer = new QTimer(this);
 	m_timer->start(100);

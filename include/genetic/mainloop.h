@@ -86,11 +86,15 @@ private:
 	QThread* m_geneticThread;
 	Genetic* m_genetic;
 
-	QThread* m_fileLoggerThread;
-	FileLogger* m_fileLogger;
+	QThread* m_fileLoggerTrainThread;
+	FileLogger *m_fileLoggerTrain;
+
+	QThread* m_fileLoggerTestThread;
+	FileLogger *m_fileLoggerTest;
 
 	QThread* m_fileLoggerJSONThread;
 	FileLogger *m_fileLoggerJSON;
+		
 
 private:
 	QJsonObject m_config;

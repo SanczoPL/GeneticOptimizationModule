@@ -1,5 +1,4 @@
 #include "genetic/case.h"
-//#include <QPolygonF>
 
 //#define DEBUG 
 //#define DEBUG_CASE
