@@ -20,7 +20,7 @@
 		"SaveBestPopulationVideo": true,
 		"FitnessThreshold": 3.9999,
 		"MaxIteration": 1000,
-		"MaxBestNotChange": 50
+		"MaxBestNotChange": 100
 	},
 	"ConfigUnix": 
 	{
