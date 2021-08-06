@@ -2,7 +2,7 @@
 	"General": 
 	{
 		"LogLevel": 0,
-		"ThreadsMax": 12,
+		"ThreadsMax": 22,
 		"Standalone": false
 	},
 	"Genetic":
@@ -20,7 +20,7 @@
 		"SaveBestPopulationVideo": true,
 		"FitnessThreshold": 3.99,
 		"MaxIteration": 1000,
-		"MaxBestNotChange": 50
+		"MaxBestNotChange": 100
 	},
 	"ConfigUnix": 
 	{

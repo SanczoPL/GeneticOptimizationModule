@@ -133,7 +133,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 				
 				MainLoop::loadConfigs(m_configPaths, m_graphTypes[graf].toString(), m_boundsTypes[bounds].toString());
 
-				for (int i = 0; i < 101; i += 10)
+				for (int i = 0; i < 101; i += 5)
 				{
 					for(int j = 0 ; j < m_geneticConfig.preprocess.size() ; j++)
 					{
@@ -154,7 +154,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							config[DRON_NOISE_DELTA] = double(0.01);
 
 							config[DRON_CONTRAST_START] = 100.00;
-							config[DRON_CONTRAST_STOP] = 100.01;
+							config[DRON_CONTRAST_STOP] = 100.02;
 							config[DRON_CONTRAST_DELTA] = 0.01;
 
 							obj[CONFIG] = config;
