@@ -3,10 +3,10 @@
 
 #include <QDebug>
 
-#include "genetic/graph.h"
-#include "genetic/data.h"
-#include "utils/includespdlog.h"
-#include "utils/configreader.h"
+#include "graph.h"
+#include "data.h"
+#include "includespdlog.h"
+#include "configreader.h"
 
 #include <opencv2/core.hpp>
 #include <opencv2/opencv.hpp>

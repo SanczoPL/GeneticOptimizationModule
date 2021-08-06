@@ -1,8 +1,7 @@
 #include "gtest_filter_median_impl_2.h"
 
 
-
-constexpr auto CONFIG{ "gtest/test_addmultipledron.json" };
+constexpr auto CONFIG{ "GeneticOptimizationModule/gtest/test_addmultipledron.json" };
 constexpr auto TEST_DATA{ "TestData" };
 
 using ::testing::AtLeast;

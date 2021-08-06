@@ -1,4 +1,4 @@
-#include "gtest_compare.h"
+#include "GeneticOptimizationModule/gtest/gtest_compare.h"
 
 constexpr auto TEST_DATA{ "TestData" };
 constexpr auto GRAPH{ "Graph" };

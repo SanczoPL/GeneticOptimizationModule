@@ -1,12 +1,12 @@
 #include "gtest_graph_benchmark.h"
 
-constexpr auto TEST_GRAPH_CONFIG{ "gtest_it/test_graph_config.json" };
-constexpr auto TEST_GRAPH_CONFIG_POSTPROCESSING{ "gtest_it/test_graph_config_postprocesssing.json" };
-constexpr auto TEST_GRAPH{ "gtest_it/test_graph.json" };
+constexpr auto TEST_GRAPH_CONFIG{ "GeneticOptimizationModule/gtest_it/test_graph_config.json" };
+constexpr auto TEST_GRAPH_CONFIG_POSTPROCESSING{ "GeneticOptimizationModule/gtest_it/test_graph_config_postprocesssing.json" };
+constexpr auto TEST_GRAPH{ "GeneticOptimizationModule/gtest_it/test_graph.json" };
 constexpr auto TEST_DATA{ "TestData" };
 constexpr auto GRAPH{ "Graph" };
-constexpr auto TEST_DATASET{ "gtest_it/test_dataset.json" };
-constexpr auto TEST_PREPROCESS{ "gtest_it/test_preprocess.json" };
+constexpr auto TEST_DATASET{ "GeneticOptimizationModule/gtest_it/test_dataset.json" };
+constexpr auto TEST_PREPROCESS{ "GeneticOptimizationModule/gtest_it/test_preprocess.json" };
 
 constexpr auto NAME{ "Name" };
 constexpr auto ACTIVE{ "Active" };
@@ -57,10 +57,10 @@ namespace gtest_graph_benchmark
 		#ifdef DEBUG_GRAPH
 		Logger->debug("m_dataMemory->getSize():{}", m_dataMemory->getSize());
 		#endif
-		for (int iteration = 0; iteration < m_dataMemory->getSize(); iteration++)
+		for (int iteration = 0; iteration < m_dataMemory->getSizeCleanTrain(); iteration++)
 		{
-			cv::Mat input = m_dataMemory->input(iteration).clone();
-			cv::Mat gt = m_dataMemory->gt(iteration).clone();
+			cv::Mat input = m_dataMemory->cleanTrain(iteration).clone();
+			cv::Mat gt = m_dataMemory->gtTrain(iteration).clone();
 			std::vector<cv::Mat> inputMatrix{input, gt};
 
 			m_data.clear();

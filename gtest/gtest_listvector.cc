@@ -1,6 +1,6 @@
 #include "gtest_listvector.h"
 
-constexpr auto CONFIG{ "test.json" };
+constexpr auto CONFIG{ "GeneticOptimizationModule/gtest/test.json" };
 constexpr auto TEST_DATA{ "TestData" };
 
 using ::testing::AtLeast;

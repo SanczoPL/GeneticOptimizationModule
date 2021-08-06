@@ -1,10 +1,10 @@
 #include <QCoreApplication>
 
-#include "utils/configreader.h"
-#include "utils/includespdlog.h"
+#include "configreader.h"
+#include "includespdlog.h"
 
-#include "../ProcessingModules/src/Subtractor/subtractors/custom_median_implementation_2.h"
-#include "../ProcessingModules/src/Subtractor/subtractors/custom_median2.h"
+#include "custom_median_implementation_2.h"
+#include "custom_median2.h"
 
 #ifdef __linux__
 #include <X11/Xlib.h>
@@ -28,7 +28,6 @@ QJsonObject readConfig(QString name);
 
 int main(int argc, char* argv[])
 {
-	
 	#ifdef __linux__
 	XInitThreads();
 	#endif // __linux__
@@ -50,7 +49,6 @@ int main(int argc, char* argv[])
 
 	Logger->debug("run mainloop...");
 	//MainLoop mainLoop{ config};
-
 
 	//return app.exec();
 	Logger->set_level(static_cast<spdlog::level::level_enum>(0));
@@ -95,21 +93,15 @@ int main(int argc, char* argv[])
 		//checkPointers(m_vector, lst.m_start);
 		//EXPECT_EQ(lst.getMedian(), 3);
 		delete medianList;
-
 	#endif
 
 	#ifdef VALGRIND_MEDIAN2
 		
 		QJsonObject a_config{{"History", 5},{"HistoryDelta",2},{"DecisionThreshold",134}};
 		Subtractors::Median2* m_subtractor = new Subtractors::Median2(a_config);
-
 		delete m_subtractor;
 
-
-
 	#endif
-
-
 }
 
 void intro() {

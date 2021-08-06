@@ -1,10 +1,10 @@
-#include "gtest_filter_custom_addmultipledron.h"
+#include "GeneticOptimizationModule/gtest/gtest_filter_custom_addmultipledron.h"
 
 #include "../ProcessingModules/src/Filter/filters/basefilter.h"
 #include "../ProcessingModules/src/Filter/filter.h"
 #include "../ProcessingModules/src/Filter/filterlist.h"
 
-constexpr auto CONFIG{ "gtest/test_addmultipledron.json" };
+constexpr auto CONFIG{ "GeneticOptimizationModule/gtest/test_addmultipledron.json" };
 constexpr auto TEST_DATA{ "TestData" };
 
 using ::testing::AtLeast;

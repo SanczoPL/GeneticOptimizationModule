@@ -3,7 +3,7 @@
 
 #include <QDebug>
 
-#include "utils/configreader.h"
+#include "configreader.h"
 
 
 

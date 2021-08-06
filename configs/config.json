@@ -18,7 +18,7 @@
 		"BoundsTypes_ALL" : ["MEDIAN2", "NONE","LOBSTER", "NONE", "MOG2", "CNT" , "MOG", "KNN","ABL", "ASBL", "ViBe", "GSOC", "GMG"],
 		"BoundsTypes" : [ "MOG","NONE","WMM", "WMV", "ABL", "PBAS","KNN","MOG2", "CNT" , "MEDIAN2"],
 		"SaveBestPopulationVideo": true,
-		"FitnessThreshold": 3.99,
+		"FitnessThreshold": 3.9999,
 		"MaxIteration": 1000,
 		"MaxBestNotChange": 50
 	},
