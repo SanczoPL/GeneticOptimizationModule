@@ -1,4 +1,4 @@
-#include "GeneticOptimizationModule/gtest/gtest_configreader.h"
+#include "gtest_configreader.h"
 
 //#define DEBUG_CONFIG
 
