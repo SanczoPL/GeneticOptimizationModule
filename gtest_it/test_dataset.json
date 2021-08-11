@@ -4,12 +4,12 @@
 
   "DatasetWin32": 
   {
-    "PathToDataset": "E:\\repo\\datasets\\NORM0010_1280x720_120\\",
+    "PathToDataset": "E:\\repo\\OptimizationDataset\\NORM0006_1280x720_30FPS\\",
     "ConfigName": "config.json"
   },
   "DatasetLinux": 
   {
-    "PathToDataset": "/home/gm/repo/datasets/NORM0010_1280x720_120/",
+    "PathToDataset": "/home/matczak/repo/OptimizationDataset/NORM0006_1280x720_30FPS/",
     "ConfigName": "config.json"
   }
 }
