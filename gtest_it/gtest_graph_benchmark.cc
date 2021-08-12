@@ -38,7 +38,7 @@ namespace gtest_graph_benchmark
 		std::vector<std::vector<_data>> m_data;
 		std::vector<cv::Mat> m_outputData;
 
-		Logger->set_level(static_cast<spdlog::level::level_enum>(1));
+		Logger->set_level(static_cast<spdlog::level::level_enum>(0));
 		
 		QJsonArray m_graph_config = GTest_graph_benchmark::readArray(TEST_GRAPH);
 		QJsonArray m_config = GTest_graph_benchmark::readArray(TEST_GRAPH_CONFIG);

@@ -34,22 +34,25 @@ namespace gtest_graph
 		std::vector<std::vector<_postData>> m_data;
 		std::vector<cv::Mat> m_outputData;
 
-		Logger->set_level(static_cast<spdlog::level::level_enum>(3));
-		
+		Logger->set_level(static_cast<spdlog::level::level_enum>(0));
+		Logger->debug("test_load_graph_post_processing()");
 		QJsonArray m_graph_config = GTest_graph::readArray(TEST_GRAPH_POSTPROCESSING);
 		QJsonArray m_config = GTest_graph::readArray(TEST_GRAPH_CONFIG_POSTPROCESSING);
 		QJsonArray m_preprocess = GTest_graph::readArray(TEST_PREPROCESS);
 		QJsonObject m_dataset = GTest_graph::readConfig(TEST_DATASET);
 
 		DataMemory* m_dataMemory = new DataMemory();
+		Logger->debug("test_load_graph_post_processing() m_dataMemory->configure(m_dataset)");
 		m_dataMemory->configure(m_dataset);
+		Logger->debug("test_load_graph_post_processing() m_dataMemory->preprocess(m_preprocess)");
 		if(!m_dataMemory->preprocess(m_preprocess))
 		{
 			EXPECT_EQ(0,1);
 		}
+		Logger->debug("test_load_graph_post_processing() m_graph_processing.loadGraph(m_graph_config, m_config, m_block)");
 		m_graph_processing.loadGraph(m_graph_config, m_config, m_block);
 		#ifdef DEBUG_GRAPH
-		Logger->debug("m_dataMemory->getSize():{}", m_dataMemory->getSize());
+		Logger->debug("m_dataMemory->getSize():{}", m_dataMemory->getSizeCleanTrain());
 		#endif
 		for (int iteration = 0; iteration <  m_dataMemory->getSizeCleanTrain(); iteration++)
 		{
