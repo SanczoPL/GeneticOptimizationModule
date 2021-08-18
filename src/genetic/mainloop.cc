@@ -20,6 +20,7 @@ constexpr auto DRON_RAND_SEED{ "RandSeed" };
 constexpr auto DRON_CONTRAST{ "Contrast" };
 
 constexpr auto LOGS_FOLDER{ "LogsFolder" };
+constexpr auto VIDEO_LOGS_FOLDER{ "VideoLogsFolder" };
 constexpr auto CONFIG_UNIX{ "ConfigUnix" };
 constexpr auto CONFIG_WIN{ "ConfigWin" };
 
@@ -82,22 +83,6 @@ void MainLoop::loadConfigs(QJsonObject configPaths, QString graphType, QString b
 	#endif
 }
 
-bool MainLoop::checkAndCreateFolder(QString name)
-{
-	#ifdef DEBUG_CONFIG
-	Logger->debug("MainLoop::checkAndCreateFolder({})",name.toStdString());
-	#endif
-	
-	if(!QDir(name).exists())
-	{
-		if (!QDir().mkdir(name))
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
 void MainLoop::createConfig(QJsonObject const& a_config)
 {
 	#ifdef DEBUG_CONFIG
@@ -106,23 +91,34 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 	QTime now = QTime::currentTime();
     int randNumber = now.msecsSinceStartOfDay();
 
-	if(checkAndCreateFolder(m_logsFolder))
-	{
-		Logger->error("checkAndCreateFolder cant create:{}", m_logsFolder.toStdString());
-	}
+	QString logsFolder = m_logsFolder;
+	QString videoLogsFolder = m_videoLogsFolder;
+	checkAndCreateFolder(logsFolder);
+	checkAndCreateFolder(videoLogsFolder);
 
 	for (int graf = 0 ; graf < m_graphTypes.size() ; graf++)
 	{
-		checkAndCreateFolder(m_logsFolder + m_graphTypes[graf].toString());
+		QString logsFolderWithGraph = logsFolder +  m_graphTypes[graf].toString() + m_split; 
+		QString videoLogsFolderWithGraph = videoLogsFolder +  m_graphTypes[graf].toString() + m_split;
+		checkAndCreateFolder(logsFolderWithGraph);
+		checkAndCreateFolder(videoLogsFolderWithGraph);
+
 		for (int dron = 0 ; dron < m_dronTypes.size() ; dron++)
 		{
-			checkAndCreateFolder(m_logsFolder + m_graphTypes[graf].toString() + m_split + m_dronTypes[dron].toString());
-			for (int bounds = 0 ; bounds < m_boundsTypes.size() ; bounds++)
+			QString logsFolderWithGraphAndDron = logsFolderWithGraph + m_dronTypes[dron].toString() + m_split;
+			QString videoLogsFolderWithGraphAndDron = videoLogsFolderWithGraph + m_dronTypes[dron].toString() + m_split;
+			checkAndCreateFolder(logsFolderWithGraphAndDron);
+			checkAndCreateFolder(videoLogsFolderWithGraphAndDron);
+
+			for (int bound = 0 ; bound < m_boundsTypes.size() ; bound++)
 			{
-				checkAndCreateFolder(m_logsFolder + m_graphTypes[graf].toString() + m_split + m_dronTypes[dron].toString() + 
-				m_split + m_boundsTypes[bounds].toString());
+				QString logsFolderWithGraphAndDronAndBound = logsFolderWithGraphAndDron + m_boundsTypes[bound].toString() + m_split;
+				QString videoLogsFolderWithGraphAndDronAndBound = videoLogsFolderWithGraphAndDron + m_boundsTypes[bound].toString() + m_split;
+				checkAndCreateFolder(logsFolderWithGraphAndDronAndBound);
+				checkAndCreateFolder(videoLogsFolderWithGraphAndDronAndBound);
+
 				QJsonObject obj = m_config[GENETIC].toObject();
-				obj[BOUNDS_TYPE] = m_boundsTypes[bounds].toString();
+				obj[BOUNDS_TYPE] = m_boundsTypes[bound].toString();
 				obj[DRON_TYPE] = m_dronTypes[dron].toString();
 				obj[GRAPH_TYPE] = m_graphTypes[graf].toString();
 				#ifdef DEBUG_CONFIG
@@ -131,7 +127,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 				m_config[GENETIC] = obj;
 				m_geneticConfig.config = m_config;
 				
-				MainLoop::loadConfigs(m_configPaths, m_graphTypes[graf].toString(), m_boundsTypes[bounds].toString());
+				MainLoop::loadConfigs(m_configPaths, m_graphTypes[graf].toString(), m_boundsTypes[bound].toString());
 
 				for (int i = 0; i < 101; i += 5)
 				{
@@ -145,7 +141,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							QJsonObject config = obj[CONFIG].toObject();
 							//config[DRON_NOISE] = i;
 							//config[DRON_CONTRAST] = 100;
-							config[BOUNDS_TYPE] = m_boundsTypes[bounds].toString();
+							config[BOUNDS_TYPE] = m_boundsTypes[bound].toString();
 							config[DRON_TYPE] = m_dronTypes[dron].toString();
 							config[DRON_RAND_SEED] = randNumber;
 
@@ -292,7 +288,9 @@ void MainLoop::configure(QJsonObject const& a_config)
 		qDebug() << "MainLoop::createConfig(a_config) a_config:" << a_config;
 	#endif
 
+
 	m_logsFolder = m_configPaths[LOGS_FOLDER].toString();
+	m_videoLogsFolder = m_configPaths[VIDEO_LOGS_FOLDER].toString();
 
 	m_graphTypes = a_config[GENETIC].toObject()[GRAPH_TYPES].toArray();
 	m_boundsTypes = a_config[GENETIC].toObject()[BOUNDS_TYPES].toArray();

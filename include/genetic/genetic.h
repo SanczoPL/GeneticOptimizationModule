@@ -102,6 +102,7 @@ class Genetic : public QObject {
 		QString m_dronType;
 		QString m_logsFolder;
 		QString m_resultsPath{};
+		QString m_videoLogsFolder{};
 
 		bool m_configured{};
 		bool m_saveBestPopulationVideo{};

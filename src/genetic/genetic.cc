@@ -20,6 +20,7 @@ constexpr auto TYPE{ "Type" };
 constexpr auto ENCODER{ "Encoder" };
 constexpr auto CONFIG{ "Config" };
 constexpr auto LOGS_FOLDER{ "LogsFolder" };
+constexpr auto VIDEO_LOGS_FOLDER{ "VideoLogsFolder" };
 
 constexpr auto CONFIG_UNIX{ "ConfigUnix" };
 constexpr auto CONFIG_WIN{ "ConfigWin" };
@@ -134,7 +135,8 @@ void Genetic::configure(QJsonObject const& a_config, QJsonObject  const& a_bound
 	//emit(configureLogger((m_fileName + ".txt"), false));
 	m_fileLoggerJSON->onConfigure(m_fileName + ".json");
 
-	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/mp4_" + QString::number(m_dronNoise) 
+	//for video logs:
+	m_fileName = m_videoLogsFolder + m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/mp4_" + QString::number(m_dronNoise) 
 	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
 	
 	m_configured = true;
@@ -167,6 +169,7 @@ void Genetic::loadFromConfig(QJsonObject const& a_config)
 	m_boundsType = genetic[BOUNDS_TYPE].toString();
 	m_dronType = genetic[DRON_TYPE].toString();
 	m_logsFolder = genetic[LOGS_FOLDER].toString();
+	m_videoLogsFolder = genetic[VIDEO_LOGS_FOLDER].toString();
 
 	#ifdef _WIN32
     QJsonObject configPaths = a_config[CONFIG_WIN].toObject();

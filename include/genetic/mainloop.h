@@ -51,8 +51,6 @@ private:
 	void readConfig(QString configName, QJsonArray& jArray, QString graphType);
 	void loadConfigs(QJsonObject configPaths, QString graphType, QString boundsType);
 	void createConfig(QJsonObject const& a_config);
-	bool checkAndCreateFolder(QString name);
-	
 
 signals:
 	void quit();
@@ -61,7 +59,6 @@ signals:
 	void onSendJSON(const qint32 topic, const QJsonObject json);
 	void subscribeTopic(const qint32 topic);
 	void unsubscribeTopic(const qint32 topic);
-
 
 public slots:
 	void onUpdate();
@@ -130,6 +127,7 @@ private:
 	QString m_boundsType{};
 	QString m_logsFolder;
 	QString m_split;
+	QString m_videoLogsFolder{};
 	
 };
 
