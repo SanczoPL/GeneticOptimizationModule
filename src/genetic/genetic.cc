@@ -391,7 +391,7 @@ void Genetic::handleBestPopulation()
 		}
 		//m_testCaseBest->onConfigureAndStart(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
 		fitness fs = m_testCaseBest->onConfigureAndStartTest(m_graph, m_geneticOperation.m_vectorBits[m_populationSize], m_postprocess);
-		Genetic::logPopulation("Test", fs, m_fileLoggerTest);
+		Genetic::logPopulation("1", fs, m_fileLoggerTest);
 	}
 }
 
