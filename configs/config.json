@@ -29,7 +29,8 @@
 		"Bounds": "/home/matczak/repo/Optimization/GeneticOptimizationModule/configs/bounds.json",
 		"Preprocess": "/home/matczak/repo/Optimization/GeneticOptimizationModule/configs/preprocess.json",
 		"Postprocess": "/home/matczak/repo/Optimization/GeneticOptimizationModule/configs/postprocess.json",
-		"LogsFolder" : "/home/matczak/repo/logs/"
+		"LogsFolder" : "/home/matczak/repo/logs/",
+		"VideoLogsFolder" : "/home/matczak/repo/video_logs/"
 	},
 	"ConfigWin": 
 	{
@@ -38,6 +39,7 @@
 		"Bounds": "E:\\repo\\Optimization\\GeneticOptimizationModule\\configs\\bounds.json",
 		"Preprocess": "E:\\repo\\Optimization\\GeneticOptimizationModule\\configs\\preprocess.json",
 		"Postprocess": "E:\\repo\\Optimization\\GeneticOptimizationModule\\configs\\postprocess.json",
-		"LogsFolder" : "E:\\repo\\logs\\"
+		"LogsFolder" : "E:\\repo\\logs\\",
+		"VideoLogsFolder" : "E:\\repo\\video_logs\\"
 	}
 }
