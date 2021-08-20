@@ -10,7 +10,7 @@ constexpr auto GENETIC{ "Genetic" };
 constexpr auto POPULATION_SIZE{ "PopulationSize" };
 constexpr auto RESULTS_PATH{"ResultsPath"};
 constexpr auto GRAPH_TYPE{ "GraphType" };
-constexpr auto BOUNDS_TYPE{ "BoundsType" };
+constexpr auto BOUND_TYPE{ "BoundType" };
 constexpr auto DRON_TYPE{ "DronType" };
 constexpr auto STANDARD_DEVIATION{ "StandardDeviation" };
 constexpr auto DRON_NOISE{ "Noise" };
@@ -122,12 +122,12 @@ void Genetic::configure(QJsonObject const& a_config, QJsonObject  const& a_bound
 
 	qint64 _nowTime = qint64(QDateTime::currentMSecsSinceEpoch());
 
-	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/train_" + QString::number(m_dronNoise) 
+	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundType + "/train_" + QString::number(m_dronNoise) 
 	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
 	m_fileLoggerTrain->onConfigure(m_fileName + ".txt");
 	Logger->debug("Genetic::configure() file:{}", (m_fileName + ".txt").toStdString());
 
-	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/test_" + QString::number(m_dronNoise) 
+	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundType + "/test_" + QString::number(m_dronNoise) 
 	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
 	m_fileLoggerTest->onConfigure(m_fileName + ".txt");
 	Logger->debug("Genetic::configure() file:{}", (m_fileName + ".txt").toStdString());
@@ -136,7 +136,7 @@ void Genetic::configure(QJsonObject const& a_config, QJsonObject  const& a_bound
 	m_fileLoggerJSON->onConfigure(m_fileName + ".json");
 
 	//for video logs:
-	m_fileName = m_videoLogsFolder + m_graphType + "/" + m_dronType  + "/" + m_boundsType + "/mp4_" + QString::number(m_dronNoise) 
+	m_fileName = m_videoLogsFolder + m_graphType + "/" + m_dronType  + "/" + m_boundType + "/mp4_" + QString::number(m_dronNoise) 
 	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
 	
 	m_configured = true;
@@ -166,7 +166,7 @@ void Genetic::loadFromConfig(QJsonObject const& a_config)
 	m_resultsPath = a_config[RESULTS].toObject()[RESULTS_PATH].toString();
 	m_populationSize = genetic[POPULATION_SIZE].toInt();
 	m_graphType = genetic[GRAPH_TYPE].toString();
-	m_boundsType = genetic[BOUNDS_TYPE].toString();
+	m_boundType = genetic[BOUND_TYPE].toString();
 	m_dronType = genetic[DRON_TYPE].toString();
 	m_logsFolder = genetic[LOGS_FOLDER].toString();
 	m_videoLogsFolder = genetic[VIDEO_LOGS_FOLDER].toString();

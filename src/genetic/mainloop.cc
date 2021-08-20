@@ -288,7 +288,6 @@ void MainLoop::configure(QJsonObject const& a_config)
 		qDebug() << "MainLoop::createConfig(a_config) a_config:" << a_config;
 	#endif
 
-
 	m_logsFolder = m_configPaths[LOGS_FOLDER].toString();
 	m_videoLogsFolder = m_configPaths[VIDEO_LOGS_FOLDER].toString();
 
