@@ -10,7 +10,7 @@ constexpr auto GENETIC{ "Genetic" };
 constexpr auto POPULATION_SIZE{ "PopulationSize" };
 constexpr auto RESULTS_PATH{"ResultsPath"};
 constexpr auto GRAPH_TYPE{ "GraphType" };
-constexpr auto BOUND_TYPE{ "BoundType" };
+constexpr auto BOUNDS_TYPE{ "BoundsType" };
 constexpr auto DRON_TYPE{ "DronType" };
 constexpr auto STANDARD_DEVIATION{ "StandardDeviation" };
 constexpr auto DRON_NOISE{ "Noise" };
@@ -166,7 +166,7 @@ void Genetic::loadFromConfig(QJsonObject const& a_config)
 	m_resultsPath = a_config[RESULTS].toObject()[RESULTS_PATH].toString();
 	m_populationSize = genetic[POPULATION_SIZE].toInt();
 	m_graphType = genetic[GRAPH_TYPE].toString();
-	m_boundType = genetic[BOUND_TYPE].toString();
+	m_boundType = genetic[BOUNDS_TYPE].toString();
 	m_dronType = genetic[DRON_TYPE].toString();
 	m_logsFolder = genetic[LOGS_FOLDER].toString();
 	m_videoLogsFolder = genetic[VIDEO_LOGS_FOLDER].toString();
