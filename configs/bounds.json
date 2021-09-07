@@ -437,10 +437,10 @@
 					{"Type": "RelSimilarityThreshold","Min":1,"Max": 99, "IsDouble": 100},
 					{"Type": "OffsetSimilarityThreshold","Min": 0,"Max": 5},
 					{"Type": "DescDistThreshold","Min": 3,"Max": 7},
-					{"Type": "ColorDistThreshold","Min": 10,"Max": 50},
-					{"Type": "NbBGSamples","Min": 20,"Max": 50},
+					{"Type": "ColorDistThreshold","Min": 10,"Max": 30},
+					{"Type": "NbBGSamples","Min": 20,"Max": 30},
 					{"Type": "RequiredNbBgSamples","Min": 1,"Max": 5},
-					{"Type": "LearningRate","Min": 8,"Max": 32}
+					{"Type": "LearningRate","Min": 8,"Max": 16}
 					]}
 				],
 				"NotUsed":[]
@@ -1274,10 +1274,10 @@
 					{"Type": "RelSimilarityThreshold","Min":1,"Max": 99, "IsDouble": 100},
 					{"Type": "OffsetSimilarityThreshold","Min": 0,"Max": 5},
 					{"Type": "DescDistThreshold","Min": 3,"Max": 7},
-					{"Type": "ColorDistThreshold","Min": 10,"Max": 50},
-					{"Type": "NbBGSamples","Min": 20,"Max": 50},
+					{"Type": "ColorDistThreshold","Min": 10,"Max": 30},
+					{"Type": "NbBGSamples","Min": 20,"Max": 30},
 					{"Type": "RequiredNbBgSamples","Min": 1,"Max": 5},
-					{"Type": "LearningRate","Min": 8,"Max": 32}
+					{"Type": "LearningRate","Min": 8,"Max": 16}
 					]}
 				],
 				"NotUsed":[]
