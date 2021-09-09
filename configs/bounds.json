@@ -606,7 +606,7 @@
 		}
 	},
 
-	"Graph_estimator_with_filters":
+	"Graph_estimator_with_filters_accuracy":
 	{
 		"MOG2":
 		{
