@@ -15,7 +15,7 @@
 			"ConfigName": "config.json"
 		}
 	},
-	"Graph_estimator_with_filters_recall":
+	"Graph_estimator_with_filters_all":
 	{
 		"SavePreprocessingDataset": false,
 

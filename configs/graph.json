@@ -21,7 +21,7 @@
         "Prev":[{"Name": "ESTIMATOR", "Active": 0}]
     }],
 
-	"Graph_estimator_with_filters_recall":
+	"Graph_estimator_with_filters_all":
     [{
         "Name": "FILTER_1",        "Active": 0,        "Type": "Filter",
         "Next":[{"Name": "FILTER_2", "Active": 1, "Signal":0}],
