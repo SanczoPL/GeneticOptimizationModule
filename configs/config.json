@@ -1,13 +1,13 @@
 {
 	"General": 
 	{
-		"LogLevel": 0,
-		"ThreadsMax": 50,
+		"LogLevel": 1,
+		"ThreadsMax": 6,
 		"Standalone": false
 	},
 	"Genetic":
 	{
-		"PopulationSize" : 50,
+		"PopulationSize" : 5,
 		"GraphType" : "",
 		"DronType" : "",
 		"BoundsType" : "",
@@ -20,7 +20,7 @@
 		"SaveBestPopulationVideo": true,
 		"FitnessThreshold": 3.9999,
 		"MaxIteration": 1000,
-		"MaxBestNotChange": 100
+		"MaxBestNotChange": 2
 	},
 	"ConfigUnix": 
 	{
