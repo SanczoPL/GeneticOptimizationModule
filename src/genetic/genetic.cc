@@ -138,7 +138,8 @@ void Genetic::configure(QJsonObject const& a_config, QJsonObject  const& a_bound
 	//for video logs:
 	m_fileName = m_videoLogsFolder + m_graphType + "/" + m_dronType  + "/" + m_boundType + "/mp4_" + QString::number(m_dronNoise) 
 	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime); 
-	
+
+	Logger->debug("File for video:{}", (m_fileName).toStdString());
 	m_configured = true;
 	emit(geneticConfigured());
 
@@ -169,7 +170,7 @@ void Genetic::loadFromConfig(QJsonObject const& a_config)
 	m_boundType = genetic[BOUNDS_TYPE].toString();
 	m_dronType = genetic[DRON_TYPE].toString();
 	m_logsFolder = genetic[LOGS_FOLDER].toString();
-	m_videoLogsFolder = genetic[VIDEO_LOGS_FOLDER].toString();
+	
 
 	#ifdef _WIN32
     QJsonObject configPaths = a_config[CONFIG_WIN].toObject();
@@ -178,11 +179,12 @@ void Genetic::loadFromConfig(QJsonObject const& a_config)
     QJsonObject configPaths = a_config[CONFIG_UNIX].toObject();
     #endif // __linux__
 	m_logsFolder = configPaths[LOGS_FOLDER].toString();
-
+	m_videoLogsFolder = configPaths[VIDEO_LOGS_FOLDER].toString();
 	m_saveBestPopulationVideo = genetic[SAVE_BEST_POPULATION_VIDEO].toBool();
 	m_fitnessThreshold = genetic[FITNESS_THRESHOLD].toDouble();
 	m_maxIteration = genetic[MAX_ITERATION].toInt();
 	m_maxBestNotChange = genetic[MAX_BEST_NOT_CHANGE].toInt();
+	
 
 }
 void Genetic::onSignalOk(struct fitness fs, qint32 slot)
@@ -382,6 +384,7 @@ void Genetic::handleBestPopulation()
 				obj[CONFIG] = m_postprocess[i].toObject()["Config2"];
 				QJsonObject config = obj[CONFIG].toObject();
 				config["Path"] = m_fileName + "_" + QString().setNum(m_geneticOperation.m_fitness[m_populationSize].fitness, 'f', 4);
+				Logger->debug("Path for video:{}", (m_fileName + "_" + QString().setNum(m_geneticOperation.m_fitness[m_populationSize].fitness, 'f', 4)).toStdString());
 				obj[CONFIG] = config;
 				m_postprocess[i] = obj;
 				#ifdef DEBUG
