@@ -12,7 +12,7 @@
 		"DronType" : "",
 		"BoundsType" : "",
 		"GraphTypes1":[ "Graph_estimator", "Graph_estimator_with_filters"],
-		"GraphTypes":["Graph_estimator_with_filters_all"],
+		"GraphTypes":["Graph_estimator_with_filters"],
 		"DronTypes" : [ "BLACK", "WHITE", "BLACK_WHITE"],
 		"DronTypes_OLD" : [ "BLACK_WHITE", "WHITE", "BLACK"],
 		"BoundsTypes_ALL" : ["MEDIAN2", "NONE","LOBSTER", "NONE", "MOG2", "CNT" , "MOG", "KNN","ABL", "ASBL", "ViBe", "GSOC", "GMG"],

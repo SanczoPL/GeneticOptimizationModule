@@ -36,7 +36,7 @@
         "Config": {"Name": "None"}
     }],
     
-    "Graph_estimator_with_filters_all":
+    "Graph_estimator_with_filters":
     [{
         "Name": "INPUT",        "Active": 0,        "Type": "Filter",
         "Next":[{"Name": "ADD_DRON", "Active": 2, "Signal":0}],
