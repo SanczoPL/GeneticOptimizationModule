@@ -146,7 +146,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							config[DRON_RAND_SEED] = randNumber;
 
 							config[DRON_NOISE_START] = double(i);
-							config[DRON_NOISE_STOP] = double(i + 0.02);
+							config[DRON_NOISE_STOP] = double(i + 0.03);
 							config[DRON_NOISE_DELTA] = double(0.01);
 
 							config[DRON_CONTRAST_START] = 100.00;
