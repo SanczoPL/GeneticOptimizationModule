@@ -19,9 +19,9 @@
 		"BoundsTypes22" : [ "MOG","NONE","WMM", "WMV", "ABL", "PBAS","KNN","MOG2", "CNT" , "MEDIAN2", "ViBe"],
 		"BoundsTypes" : [ "MOG2", "KNN", "MOG", "CNT", "GSOC", "GMG", "LSBP"],
 		"SaveBestPopulationVideo": true,
-		"FitnessThreshold": 5.9999,
+		"FitnessThreshold": 3.9999,
 		"MaxIteration": 1000,
-		"MaxBestNotChange": 100
+		"MaxBestNotChange": 200
 	},
 	"ConfigUnix": 
 	{
