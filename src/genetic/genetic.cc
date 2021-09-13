@@ -367,10 +367,11 @@ void Genetic::handleBestPopulation()
 				m_geneticOperation.m_vectorBits[m_populationSize][0].toObject();
 	#endif
 
-	QJsonObject fromArray{ { "Best", m_geneticOperation.m_vectorBits[m_populationSize] }, 
+	QJsonObject json{ { "Best", m_geneticOperation.m_vectorBits[m_populationSize] }, 
 		{ "Config", m_graph}, {GENETIC, m_config[GENETIC].toObject()} };
 
-	emit(logJsonBest(fromArray));
+	//emit(logJsonBest(json));
+	m_fileLoggerJSON->onLogJsonBest(json);
 	m_timer.stop();
 
 	if(m_saveBestPopulationVideo)
