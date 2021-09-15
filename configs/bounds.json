@@ -108,7 +108,7 @@
 		{
 			"Used":
 			[	{"Name":"MOG2", "Parameters":[
-					{"Type": "History","Min": 5,"Max": 50},
+					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "LearningRate","Min": 0,"Max": 100,"IsDouble": 100}
@@ -138,7 +138,7 @@
 			{
 				"Used":
 				[	{"Name":"MOG2", "Parameters":[
-					{"Type": "History","Min": 5,"Max": 50},
+					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "LearningRate","Min": 0,"Max": 100,"IsDouble": 100}
@@ -166,7 +166,7 @@
 			{
 				"Used":
 				[	{"Name":"KNN", "Parameters":[
-					{"Type": "History","Min": 5,"Max": 50},
+					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "LearningRate","Min": 0,"Max": 100,"IsDouble": 100}
@@ -330,7 +330,7 @@
 			{
 				"Used":
 				[	{"Name":"MOG", "Parameters":[
-					{"Type": "History","Min": 5,"Max": 50},
+					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "Nmixtures","Min": 2,"Max": 10},
 					{"Type": "BackgroundRatio","Min": 1,"Max": 99, "IsDouble": 100},
 					{"Type": "NoiseSigma","Min": 1,"Max": 99, "IsDouble": 100},
@@ -668,7 +668,7 @@
 			{
 				"Used":
 				[	{"Name":"MOG2", "Parameters":[
-					{"Type": "History","Min": 5,"Max": 50},
+					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "LearningRate","Min": 0,"Max": 100,"IsDouble": 100}
@@ -730,7 +730,7 @@
 			{
 				"Used":
 				[	{"Name":"KNN", "Parameters":[
-					{"Type": "History","Min": 5,"Max": 50},
+					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "LearningRate","Min": 0,"Max": 100,"IsDouble": 100}
@@ -1038,7 +1038,7 @@
 			{
 				"Used":
 				[	{"Name":"MOG", "Parameters":[
-					{"Type": "History","Min": 5,"Max": 50},
+					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "Nmixtures","Min": 2,"Max": 10},
 					{"Type": "BackgroundRatio","Min": 1,"Max": 99, "IsDouble": 100},
 					{"Type": "NoiseSigma","Min": 1,"Max": 99, "IsDouble": 100},
