@@ -49,8 +49,9 @@
         "Next":[],
         "Prev":[{"Name": "image", "Active": 4, "Signal":0},{"Name": "GT", "Active": 4, "Signal":1},
                 {"Name": "image", "Active": 4, "Signal":2},{"Name": "B1", "Active": 4, "Signal":3}],
-        "Config": {"Name": "None", "Path": "123","FPS":10.0, "Width":1800, "Height":1500,  "Type":".mp4", "Iter": 1000},
-        "Config2": {"Name": "Preview", "Path": "mp4","FPS":10.0, "Width":900, "Height":300,  "Type":".mp4", "Iter": 1000}
+                "Config": {"Name": "None"},
+                "Config2": {"Name": "Preview", "Path": "mp4","FPS":10.0, "Width":100, "Height":100,  "Type":".mp4", 
+                    "Iter": 1000, "SaveSingleLastFrame":false, "SaveAllFrames":false}
     }],
     "Graph_estimator_with_filters":
     [{
@@ -103,10 +104,8 @@
         "Prev":[{"Name": "image", "Active": 4, "Signal":0},{"Name": "GT", "Active": 4, "Signal":1},
                 {"Name": "image", "Active": 4, "Signal":2},{"Name": "B1", "Active": 4, "Signal":3}],
 
-        "Config": {"Name": "None", "Path": "mp4","FPS":10.0, "Width":500, "Height":500,  "Type":".mp4", 
-            "Iter": 1000, "SaveSingleLastFrame":true, "SaveAllFrames":true},
-
-        "Config2": {"Name": "Preview", "Path": "mp4","FPS":10.0, "Width":500, "Height":500,  "Type":".mp4", 
-            "Iter": 1000, "SaveSingleLastFrame":true, "SaveAllFrames":true}
+        "Config": {"Name": "None"},
+        "Config2": {"Name": "Preview", "Path": "mp4","FPS":10.0, "Width":100, "Height":100,  "Type":".mp4", 
+            "Iter": 1000, "SaveSingleLastFrame":false, "SaveAllFrames":false}
     }]
 }
