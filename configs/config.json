@@ -17,7 +17,7 @@
 		"DronTypes_OLD" : [ "BLACK_WHITE", "WHITE", "BLACK"],
 		"BoundsTypes_ALL" : ["MEDIAN2", "NONE","LOBSTER", "NONE", "MOG2", "CNT" , "MOG", "KNN","ABL", "ASBL", "ViBe", "GSOC", "GMG"],
 		"BoundsTypes22" : [ "MOG","NONE","WMM", "WMV", "ABL", "PBAS","KNN","MOG2", "CNT" , "MEDIAN2", "ViBe"],
-		"BoundsTypes" : [ "MOG2", "KNN", "MOG", "CNT", "GSOC", "GMG", "LSBP"],
+		"BoundsTypes" : [ "MOG2", "GMG", "KNN", "MOG", "CNT", "GSOC", "LSBP"],
 		"SaveBestPopulationVideo": true,
 		"FitnessThreshold": 5.9999,
 		"MaxIteration": 1000,
