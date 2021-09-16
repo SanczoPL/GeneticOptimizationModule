@@ -111,7 +111,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				
 			],
@@ -141,7 +141,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -169,7 +169,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -278,7 +278,7 @@
 					{"Type": "MaxPixelStability","Min": 600,"Max": 1200},
 					{"Type": "IsParallel", "Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "UseHistory", "Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -305,7 +305,7 @@
 				[	{"Name":"GMG", "Parameters":[
 					{"Type": "InitializationFrames","Min": 1,"Max": 50},
 					{"Type": "DecisionThreshold","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -334,7 +334,7 @@
 					{"Type": "Nmixtures","Min": 2,"Max": 10},
 					{"Type": "BackgroundRatio","Min": 1,"Max": 99, "IsDouble": 100},
 					{"Type": "NoiseSigma","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -476,7 +476,7 @@
 					{"Type": "ReplaceRate","Min": 1,"Max": 999, "IsDouble": 1000},
 					{"Type": "PropagationRate","Min": 1,"Max": 99, "IsDouble": 100},
 					{"Type": "HitsThreshold","Min": 1,"Max": 255},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -514,7 +514,7 @@
 					{"Type": "NoiseFG","Min": 1000,"Max": 9000, "IsDouble": 1000},
 					{"Type": "BinaryThreshold","Min": 5,"Max": 50},
 					{"Type": "MinMatchesNumber","Min": 1, "Max": 5},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -671,7 +671,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -733,7 +733,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -917,7 +917,7 @@
 					{"Type": "MaxPixelStability","Min": 600,"Max": 1200},
 					{"Type": "IsParallel", "Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "UseHistory", "Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -978,7 +978,7 @@
 				[	{"Name":"GMG", "Parameters":[
 					{"Type": "InitializationFrames","Min": 1,"Max": 50},
 					{"Type": "DecisionThreshold","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -1042,7 +1042,7 @@
 					{"Type": "Nmixtures","Min": 2,"Max": 10},
 					{"Type": "BackgroundRatio","Min": 1,"Max": 99, "IsDouble": 100},
 					{"Type": "NoiseSigma","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -1354,7 +1354,7 @@
 					{"Type": "ReplaceRate","Min": 1,"Max": 999, "IsDouble": 1000},
 					{"Type": "PropagationRate","Min": 1,"Max": 99, "IsDouble": 100},
 					{"Type": "HitsThreshold","Min": 1,"Max": 255},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
@@ -1681,7 +1681,7 @@
 					{"Type": "NoiseFG","Min": 1000,"Max": 9000, "IsDouble": 1000},
 					{"Type": "BinaryThreshold","Min": 5,"Max": 50},
 					{"Type": "MinMatchesNumber","Min": 1, "Max": 5},
-					{"Type": "LearningRate","Min": 80,"Max": 100,"IsDouble": 100}
+					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
 				],
 				"NotUsed":[]
