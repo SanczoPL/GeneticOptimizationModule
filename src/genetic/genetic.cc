@@ -133,6 +133,8 @@ void Genetic::configure(QJsonObject const& a_config, QJsonObject  const& a_bound
 	Logger->debug("Genetic::configure() file:{}", (m_fileName + ".txt").toStdString());
 
 	//emit(configureLogger((m_fileName + ".txt"), false));
+	m_fileName = m_logsFolder+ m_graphType + "/" + m_dronType  + "/" + m_boundType + "/best_" + QString::number(m_dronNoise) 
+	+ "_" + QString::number(m_dronContrast) + "_" + QString::number(_nowTime);
 	m_fileLoggerJSON->onConfigure(m_fileName + ".json");
 
 	//for video logs:
