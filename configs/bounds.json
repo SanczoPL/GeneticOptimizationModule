@@ -111,7 +111,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": -1,"Max": -1}
+					{"Type": "LearningRate","Min": 1,"Max": 1, "IsDouble": 1}
 					]}
 				
 			],
@@ -141,7 +141,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": -1,"Max": -1}
+					{"Type": "LearningRate","Min": 1,"Max": 1, "IsDouble": 1}
 					]}
 				],
 				"NotUsed":[]
@@ -169,7 +169,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": -1,"Max": -1}
+					{"Type": "LearningRate","Min": 1,"Max": 1, "IsDouble": 1}
 					]}
 				],
 				"NotUsed":[]
@@ -305,7 +305,7 @@
 				[	{"Name":"GMG", "Parameters":[
 					{"Type": "InitializationFrames","Min": 1,"Max": 50},
 					{"Type": "DecisionThreshold","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningRate","Min": -1,"Max": -1}
+					{"Type": "LearningRate","Min": 1,"Max": 1, "IsDouble": 1}
 					]}
 				],
 				"NotUsed":[]
@@ -671,7 +671,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 0,"Max": 255},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": -1,"Max": -1}
+					{"Type": "LearningRate","Min": 1,"Max": 1, "IsDouble": 1}
 					]}
 				],
 				"NotUsed":[]
@@ -733,7 +733,7 @@
 					{"Type": "History","Min": 50,"Max": 50},
 					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
-					{"Type": "LearningRate","Min": -1,"Max": -1}
+					{"Type": "LearningRate","Min": 1,"Max": 1, "IsDouble": 1}
 					]}
 				],
 				"NotUsed":[]
@@ -978,7 +978,7 @@
 				[	{"Name":"GMG", "Parameters":[
 					{"Type": "InitializationFrames","Min": 1,"Max": 50},
 					{"Type": "DecisionThreshold","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningRate","Min": -1,"Max": -1}
+					{"Type": "LearningRate","Min": 1,"Max": 1, "IsDouble": 1}
 					]}
 				],
 				"NotUsed":[]
