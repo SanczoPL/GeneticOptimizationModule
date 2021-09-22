@@ -166,8 +166,8 @@
 			{
 				"Used":
 				[	{"Name":"KNN", "Parameters":[
-					{"Type": "History","Min": 50,"Max": 50},
-					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
+					{"Type": "History","Min": 50,"Max": 800},
+					{"Type": "VarThreshold","Min": 10,"Max": 6000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
@@ -730,8 +730,8 @@
 			{
 				"Used":
 				[	{"Name":"KNN", "Parameters":[
-					{"Type": "History","Min": 50,"Max": 50},
-					{"Type": "VarThreshold","Min": 1,"Max": 5000,"IsDouble": 10},
+					{"Type": "History","Min": 50,"Max": 800},
+					{"Type": "VarThreshold","Min": 10,"Max": 6000,"IsDouble": 10},
 					{"Type": "DetectShadow","Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "LearningRate","Min": -1,"Max": -1}
 					]}
