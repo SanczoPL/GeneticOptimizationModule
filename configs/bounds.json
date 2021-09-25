@@ -28,19 +28,19 @@
 					]},
 				{"Name": "MorphologyOperation", "Parameters":[
 					{"Type": "MorphOperator","Min": 0,"Max": 5},
-					{"Type": "MorphSize","Min": 1,"Max": 3},
+					{"Type": "MorphSize","Min": 1,"Max": 5},
 					{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 				{"Name": "Sobel", "Parameters":[
 					{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 					{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-					{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+					{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 					{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 
@@ -79,19 +79,19 @@
 					]},
 				{"Name": "MorphologyOperation", "Parameters":[
 					{"Type": "MorphOperator","Min": 0,"Max": 5},
-					{"Type": "MorphSize","Min": 1,"Max": 3},
+					{"Type": "MorphSize","Min": 1,"Max": 5},
 					{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 				{"Name": "Sobel", "Parameters":[
 					{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 					{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-					{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+					{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 					{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 			],
@@ -387,7 +387,7 @@
 			{
 				"Used":
 				[	{"Name":"ABL", "Parameters":[
-					{"Type": "Alpha","Min": 1,"Max": 99, "IsDouble": 100}
+					{"Type": "Alpha","Min": 1,"Max": 100, "IsDouble": 100}
 					]}
 				],
 				"NotUsed":[]
@@ -412,9 +412,9 @@
 			{
 				"Used":
 				[	{"Name":"ASBL", "Parameters":[
-					{"Type": "AlphaLearn","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "AlphaDetection","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningFrames","Min": 1,"Max": 10},
+					{"Type": "AlphaLearn","Min": 1,"Max": 100, "IsDouble": 100},
+					{"Type": "AlphaDetection","Min": 1,"Max": 100, "IsDouble": 100},
+					{"Type": "LearningFrames","Min": 1,"Max": 50},
 					{"Type": "Threshold","Min": 1,"Max": 255}
 					]}
 				],
@@ -632,8 +632,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -646,19 +646,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -693,8 +693,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -707,19 +707,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -755,8 +755,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -769,19 +769,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -816,8 +816,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -830,19 +830,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -876,8 +876,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -890,19 +890,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -939,8 +939,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -953,19 +953,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -1001,8 +1001,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -1015,19 +1015,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -1064,8 +1064,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -1078,19 +1078,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -1126,8 +1126,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -1140,19 +1140,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -1163,7 +1163,7 @@
 			{
 				"Used":
 				[	{"Name":"ABL", "Parameters":[
-					{"Type": "Aplpha","Min": 1,"Max": 99, "IsDouble": 100}
+					{"Type": "Aplpha","Min": 1,"Max": 100, "IsDouble": 100}
 					]}
 				],
 				"NotUsed":[]
@@ -1185,8 +1185,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -1199,19 +1199,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -1222,9 +1222,9 @@
 			{
 				"Used":
 				[	{"Name":"ASBL", "Parameters":[
-					{"Type": "AlphaLearn","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "AlphaDetection","Min": 1,"Max": 99, "IsDouble": 100},
-					{"Type": "LearningFrames","Min": 1,"Max": 10},
+					{"Type": "AlphaLearn","Min": 1,"Max": 100, "IsDouble": 100},
+					{"Type": "AlphaDetection","Min": 1,"Max": 100, "IsDouble": 100},
+					{"Type": "LearningFrames","Min": 1,"Max": 50},
 					{"Type": "Threshold","Min": 1,"Max": 255}
 					]}
 				],
@@ -1247,8 +1247,8 @@
 					{"Name": "GaussianBlur", "Parameters":[
 						{"Type": "KernelSizeX","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "KernelSizeY","Min": 1,"Max": 5,"IsOdd": true},
-						{"Type": "SigmaX","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaY","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaX","Min": 1,"Max": 100,"IsDouble": 100},
+						{"Type": "SigmaY","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "Threshold", "Parameters":[
@@ -1261,19 +1261,19 @@
 					]},
 					{"Name": "MorphologyOperation", "Parameters":[
 						{"Type": "MorphOperator","Min": 0,"Max": 5},
-						{"Type": "MorphSize","Min": 1,"Max": 3},
+						{"Type": "MorphSize","Min": 1,"Max": 5},
 						{"Type": "MorphElement","Min": 0,"Max": 2}
 					]},
 					{"Name": "Sobel", "Parameters":[
 						{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 						{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-						{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+						{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]},
 					{"Name": "BilateralFilter", "Parameters":[
 						{"Type": "Diameter","Min": 1,"Max": 5},
-						{"Type": "SigmaColor","Min": 1,"Max": 99,"IsDouble": 100},
-						{"Type": "SigmaSpace","Min": 1,"Max": 99,"IsDouble": 100},
+						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
+						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
 					]}
 				],
@@ -1326,13 +1326,13 @@
 						]},
 						{"Name": "MorphologyOperation", "Parameters":[
 							{"Type": "MorphOperator","Min": 0,"Max": 5},
-							{"Type": "MorphSize","Min": 1,"Max": 3},
+							{"Type": "MorphSize","Min": 1,"Max": 5},
 							{"Type": "MorphElement","Min": 0,"Max": 2}
 						]},
 						{"Name": "Sobel", "Parameters":[
 							{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 							{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-							{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+							{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 							{"Type": "BorderType","Min": 1,"Max": 2}
 						]},
 						{"Name": "BilateralFilter", "Parameters":[
@@ -1390,13 +1390,13 @@
 						]},
 						{"Name": "MorphologyOperation", "Parameters":[
 							{"Type": "MorphOperator","Min": 0,"Max": 5},
-							{"Type": "MorphSize","Min": 1,"Max": 3},
+							{"Type": "MorphSize","Min": 1,"Max": 5},
 							{"Type": "MorphElement","Min": 0,"Max": 2}
 						]},
 						{"Name": "Sobel", "Parameters":[
 							{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 							{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-							{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+							{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 							{"Type": "BorderType","Min": 1,"Max": 2}
 						]},
 						{"Name": "BilateralFilter", "Parameters":[
@@ -1451,13 +1451,13 @@
 						]},
 						{"Name": "MorphologyOperation", "Parameters":[
 							{"Type": "MorphOperator","Min": 0,"Max": 5},
-							{"Type": "MorphSize","Min": 1,"Max": 3},
+							{"Type": "MorphSize","Min": 1,"Max": 5},
 							{"Type": "MorphElement","Min": 0,"Max": 2}
 						]},
 						{"Name": "Sobel", "Parameters":[
 							{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 							{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-							{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+							{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 							{"Type": "BorderType","Min": 1,"Max": 2}
 						]},
 						{"Name": "BilateralFilter", "Parameters":[
@@ -1512,13 +1512,13 @@
 						]},
 						{"Name": "MorphologyOperation", "Parameters":[
 							{"Type": "MorphOperator","Min": 0,"Max": 5},
-							{"Type": "MorphSize","Min": 1,"Max": 3},
+							{"Type": "MorphSize","Min": 1,"Max": 5},
 							{"Type": "MorphElement","Min": 0,"Max": 2}
 						]},
 						{"Name": "Sobel", "Parameters":[
 							{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 							{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-							{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+							{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 							{"Type": "BorderType","Min": 1,"Max": 2}
 						]},
 						{"Name": "BilateralFilter", "Parameters":[
@@ -1584,13 +1584,13 @@
 						]},
 						{"Name": "MorphologyOperation", "Parameters":[
 							{"Type": "MorphOperator","Min": 0,"Max": 5},
-							{"Type": "MorphSize","Min": 1,"Max": 3},
+							{"Type": "MorphSize","Min": 1,"Max": 5},
 							{"Type": "MorphElement","Min": 0,"Max": 2}
 						]},
 						{"Name": "Sobel", "Parameters":[
 							{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 							{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-							{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+							{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 							{"Type": "BorderType","Min": 1,"Max": 2}
 						]},
 						{"Name": "BilateralFilter", "Parameters":[
@@ -1645,13 +1645,13 @@
 						]},
 						{"Name": "MorphologyOperation", "Parameters":[
 							{"Type": "MorphOperator","Min": 0,"Max": 5},
-							{"Type": "MorphSize","Min": 1,"Max": 3},
+							{"Type": "MorphSize","Min": 1,"Max": 5},
 							{"Type": "MorphElement","Min": 0,"Max": 2}
 						]},
 						{"Name": "Sobel", "Parameters":[
 							{"Type": "OrderDerivativeX","Min": 1,"Max": 2},
 							{"Type": "OrderDerivativeY","Min": 1,"Max": 2},
-							{"Type": "KernelSize","Min": 1,"Max": 2,"IsOdd": true},
+							{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true},
 							{"Type": "BorderType","Min": 1,"Max": 2}
 						]},
 						{"Name": "BilateralFilter", "Parameters":[
