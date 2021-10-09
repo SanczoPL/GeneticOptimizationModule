@@ -2,17 +2,17 @@
 	"General": 
 	{
 		"LogLevel": 1,
-		"ThreadsMax": 50,
+		"ThreadsMax": 5,
 		"Standalone": false
 	},
 	"Genetic":
 	{
-		"PopulationSize" : 50,
+		"PopulationSize" : 10,
 		"GraphType" : "",
 		"DronType" : "",
 		"BoundsType" : "",
-		"GraphTypes":[ "Graph_estimator"],
-		"GraphTypes2":["Graph_estimator_with_filters"],
+		"GraphTypes":[ "Graph_estimator_with_filters_small_drons"],
+		"GraphTypes2":["Graph_estimator_with_filters_small_drons"],
 		"DronTypes" : [ "BLACK", "WHITE", "BLACK_WHITE"],
 		"DronTypes_all" : [ "BLACK_WHITE", "WHITE", "BLACK"],
 		"BoundsTypes_all" : ["MEDIAN2", "NONE","LOBSTER", "NONE", "MOG2", "CNT" , "MOG", "KNN","ABL", "ASBL", "ViBe", "GSOC", "GMG"],
@@ -20,7 +20,7 @@
 		"SaveBestPopulationVideo": true,
 		"FitnessThreshold": 5.9999,
 		"MaxIteration": 1000,
-		"MaxBestNotChange": 200
+		"MaxBestNotChange": 20
 	},
 	"ConfigUnix": 
 	{
