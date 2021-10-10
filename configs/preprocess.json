@@ -89,7 +89,7 @@
         "Next":[{"Name": "OUTPUT", "Active": 3, "Signal":0},{"Name": "GT_OUTPUT", "Active": 4, "Signal":1}],
         "Prev":[{"Name": "INPUT", "Active": 0, "Signal":0},{"Name": "GT", "Active": 1, "Signal":0}],
         "Config":{
-            "Name": "AddMultipleDron", "SizeMin": 1, "SizeMax":4, "Color":255 , "Rotate": 90, "VelocityMin":2 , 
+            "Name": "AddMultipleDron", "SizeMin": 1, "SizeMax":2, "Color":255 , "Rotate": 90, "VelocityMin":2 , 
             "VelocityMax":3, "ProbabilityOfChangeSize":0.1, "ProbabilityOfChangeVelocity":0.1,"ProbabilityOfRotate":0.01, 
             "MarkerType":2, "StartGT":0, "UnknownGTColor":170, "RandSeed":10, "ClusterWidth" : 25, 
             "ClusterHeight":25, "ImageOffset":7, "DronThickness":1, "GlobalOffset":true, "RandomColor": true,"ContrastOffset": 1,
@@ -126,7 +126,7 @@
         "Next":[{"Name": "OUTPUT", "Active": 3, "Signal":0},{"Name": "GT_OUTPUT", "Active": 4, "Signal":1}],
         "Prev":[{"Name": "INPUT", "Active": 0, "Signal":0},{"Name": "GT", "Active": 1, "Signal":0}],
         "Config":{
-            "Name": "AddMultipleDron", "SizeMin": 1, "SizeMax":4, "Color":255 , "Rotate": 90, "VelocityMin":2 , 
+            "Name": "AddMultipleDron", "SizeMin": 1, "SizeMax":2, "Color":255 , "Rotate": 90, "VelocityMin":2 , 
             "VelocityMax":3, "ProbabilityOfChangeSize":0.1, "ProbabilityOfChangeVelocity":0.1,"ProbabilityOfRotate":0.01, 
             "MarkerType":2, "StartGT":0, "UnknownGTColor":170, "RandSeed":10, "ClusterWidth" : 25, 
             "ClusterHeight":25, "ImageOffset":7, "DronThickness":1, "GlobalOffset":true, "RandomColor": true,"ContrastOffset": 1,
