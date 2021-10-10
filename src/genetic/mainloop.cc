@@ -130,7 +130,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 				MainLoop::loadConfigs(m_configPaths, m_graphTypes[graf].toString(), m_boundsTypes[bound].toString());
 
 				//for (int i = 0; i < 101; i += 5)// noise:
-				for (int i = 10; i < 101; i += 5)// contrast
+				for (int i = 0; i < 101; i += 5)// contrast
 				{
 					for(int j = 0 ; j < m_geneticConfig.preprocess.size() ; j++)
 					{
