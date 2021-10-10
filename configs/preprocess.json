@@ -132,7 +132,7 @@
             "ClusterHeight":25, "ImageOffset":7, "DronThickness":1, "GlobalOffset":true, "RandomColor": true,"ContrastOffset": 1,
             "Noise":-1 , "Contrast": -1,
             "DronNoiseStart" :0.0, "DronNoiseStop": 0.1, "DronNoiseDelta": 0.01,
-            "DronContrastStart" : 10.0, "DronContrastStop": 100.1, "DronContrastDelta": 5,
+            "DronContrastStart" : 0.0, "DronContrastStop": 100.1, "DronContrastDelta": 5,
             "DronType": "WHITE_BLACK"
         }
     },{
