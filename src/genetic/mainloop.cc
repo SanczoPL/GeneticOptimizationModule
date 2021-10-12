@@ -129,8 +129,8 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 				
 				MainLoop::loadConfigs(m_configPaths, m_graphTypes[graf].toString(), m_boundsTypes[bound].toString());
 
-				//for (int i = 0; i < 101; i += 5)// noise:
-				for (int i = 0; i < 10; i += 1)// contrast
+				for (int i = 0; i < 101; i += 5)// noise:
+				//for (int i = 0; i < 10; i += 1)// contrast
 				{
 					for(int j = 0 ; j < m_geneticConfig.preprocess.size() ; j++)
 					{
@@ -143,16 +143,19 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							//config[DRON_NOISE] = i;
 							//config[DRON_CONTRAST] = 100;
 							config[BOUNDS_TYPE] = m_boundsTypes[bound].toString();
+							//TODO:
 							config[DRON_TYPE] = m_dronTypes[dron].toString();
+							//config[DRON_TYPE] = "BLACK_WHITE";
+
 							config[DRON_RAND_SEED] = randNumber;
 
-							//config[DRON_NOISE_START] = double(i);
-							//config[DRON_NOISE_STOP] = double(i + 0.06);
-							//config[DRON_NOISE_DELTA] = double(0.01);
-
-							config[DRON_NOISE_START] = double(0);
-							config[DRON_NOISE_STOP] = double(0 + 0.06);
+							config[DRON_NOISE_START] = double(i);
+							config[DRON_NOISE_STOP] = double(i + 0.06);
 							config[DRON_NOISE_DELTA] = double(0.01);
+
+							//config[DRON_NOISE_START] = double(0);
+							//config[DRON_NOISE_STOP] = double(0 + 0.06);
+							//config[DRON_NOISE_DELTA] = double(0.01);
 
 							config[DRON_CONTRAST_START] = double(i);
 							config[DRON_CONTRAST_STOP] = double(i + 0.06);
