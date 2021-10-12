@@ -156,7 +156,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							//config[DRON_NOISE_START] = double(0);
 							//config[DRON_NOISE_STOP] = double(0 + 0.06);
 							//config[DRON_NOISE_DELTA] = double(0.01);
-							int contrastStart{100}
+							int contrastStart{100};
 							if (m_dronTypes[dron].toString() == "CONTRAST_95")
 							{
 								contrastStart = 95;
