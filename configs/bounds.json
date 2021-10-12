@@ -2979,6 +2979,10 @@
 						{"Type": "SigmaColor","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "SigmaSpace","Min": 1,"Max": 1000,"IsDouble": 10},
 						{"Type": "BorderType","Min": 1,"Max": 2}
+					]},
+					{"Name": "InRange", "Parameters":[
+						{"Type": "Lowerb1","Min": 1,"Max": 255},
+						{"Type": "Upperb1","Min": 1,"Max": 255}
 					]}
 				],
 				"NotUsed":
