@@ -150,15 +150,33 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							config[DRON_RAND_SEED] = randNumber;
 
 							config[DRON_NOISE_START] = double(i);
-							config[DRON_NOISE_STOP] = double(i + 0.06);
+							config[DRON_NOISE_STOP] = double(i + 0.04);
 							config[DRON_NOISE_DELTA] = double(0.01);
 
 							//config[DRON_NOISE_START] = double(0);
 							//config[DRON_NOISE_STOP] = double(0 + 0.06);
 							//config[DRON_NOISE_DELTA] = double(0.01);
+							int contrastStart{100}
+							if (m_dronTypes[dron].toString() == "CONTRAST_95")
+							{
+								contrastStart = 95;
+							}
+							else if (m_dronTypes[dron].toString() == "CONTRAST_65")
+							{
+								contrastStart = 65;
+							}
+							else if (m_dronTypes[dron].toString() == "CONTRAST_35")
+							{
+								contrastStart = 35;
+							}
+							else if (m_dronTypes[dron].toString() == "CONTRAST_5")
+							{
+								contrastStart = 5;
+							}
 
-							config[DRON_CONTRAST_START] = double(i);
-							config[DRON_CONTRAST_STOP] = double(i + 0.06);
+
+							config[DRON_CONTRAST_START] = double(contrastStart);
+							config[DRON_CONTRAST_STOP] = double(contrastStart + 0.04);
 							config[DRON_CONTRAST_DELTA] = double(0.01);
 
 							obj[CONFIG] = config;
