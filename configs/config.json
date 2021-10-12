@@ -15,7 +15,7 @@
 		"GraphTypes2":["Graph_estimator_with_filters_small_drons", "Graph_estimator_with_filters_small_drons_contrast"],
 		"DronTypes2" : [ "BLACK", "WHITE", "BLACK_WHITE"],
 		"DronTypes3" : [ "BLACK_WHITE", "WHITE", "BLACK"],
-		"DronTypes" : [ "CONTRAST_5","CONTRAST_35","CONTRAST_65","CONTRAST_95"],
+		"DronTypes" : [ "CONTRAST_95", "CONTRAST_65","CONTRAST_35","CONTRAST_5"],
 		"BoundsTypes_all" : ["MEDIAN2", "NONE","LOBSTER", "NONE", "MOG2", "CNT" , "MOG", "KNN","ABL", "ASBL", "ViBe", "GSOC", "GMG"],
 		"BoundsTypes3" : [ "MOG","NONE","WMM", "WMV", "ABL","KNN","MOG2", "CNT" , "MEDIAN2", "ViBe", "ASBL"],
 		"BoundsTypes" : [ "MOG","CNT","MOG2"],
