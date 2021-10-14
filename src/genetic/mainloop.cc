@@ -140,14 +140,12 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							QJsonArray arrObj = m_geneticConfig.preprocess;
 							QJsonObject obj = arrObj[j].toObject();
 							QJsonObject config = obj[CONFIG].toObject();
-							//config[DRON_NOISE] = i;
-							//config[DRON_CONTRAST] = 100;
-							config[BOUNDS_TYPE] = m_boundsTypes[bound].toString();
-							//TODO:
-							config[DRON_TYPE] = m_dronTypes[dron].toString();
-							//config[DRON_TYPE] = "BLACK_WHITE";
-
 							config[DRON_RAND_SEED] = randNumber;
+							config[DRON_TYPE] = m_dronTypes[dron].toString();
+							config[BOUNDS_TYPE] = m_boundsTypes[bound].toString();
+
+							//TODO:
+							//config[DRON_TYPE] = "BLACK_WHITE";
 
 							config[DRON_NOISE_START] = double(i);
 							config[DRON_NOISE_STOP] = double(i + 0.04);
