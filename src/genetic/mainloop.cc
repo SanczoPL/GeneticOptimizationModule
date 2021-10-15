@@ -129,8 +129,7 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 				
 				MainLoop::loadConfigs(m_configPaths, m_graphTypes[graf].toString(), m_boundsTypes[bound].toString());
 
-				for (int i = 0; i < 101; i += 5)// noise:
-				//for (int i = 0; i < 10; i += 1)// contrast
+				for (int i = 0; i < 101; i += 5)
 				{
 					for(int j = 0 ; j < m_geneticConfig.preprocess.size() ; j++)
 					{
@@ -151,31 +150,43 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							config[DRON_NOISE_STOP] = double(i + 0.04);
 							config[DRON_NOISE_DELTA] = double(0.01);
 
-							//config[DRON_NOISE_START] = double(0);
-							//config[DRON_NOISE_STOP] = double(0 + 0.06);
-							//config[DRON_NOISE_DELTA] = double(0.01);
-							int contrastStart{100};
-							if (m_dronTypes[dron].toString() == "CONTRAST_95")
+							if (m_graphTypes[graf].toString() == "Graph_estimator" || m_graphTypes[graf].toString() == "Graph_estimator_with_filters")
 							{
-								contrastStart = 95;
-							}
-							else if (m_dronTypes[dron].toString() == "CONTRAST_65")
-							{
-								contrastStart = 65;
-							}
-							else if (m_dronTypes[dron].toString() == "CONTRAST_35")
-							{
-								contrastStart = 35;
-							}
-							else if (m_dronTypes[dron].toString() == "CONTRAST_5")
-							{
-								contrastStart = 5;
+								config[DRON_NOISE_START] = double(i);
+								config[DRON_NOISE_STOP] = double(i + 0.04);
+								config[DRON_NOISE_DELTA] = double(0.01);
+								config[DRON_CONTRAST_START] = double(100);
+								config[DRON_CONTRAST_STOP] = double(100 + 0.04);
+								config[DRON_CONTRAST_DELTA] = double(0.01);
 							}
 
 
-							config[DRON_CONTRAST_START] = double(contrastStart);
-							config[DRON_CONTRAST_STOP] = double(contrastStart + 0.04);
-							config[DRON_CONTRAST_DELTA] = double(0.01);
+							if (m_graphTypes[graf].toString() == "Graph_estimator_with_filters_small_drons_contrast")
+							{
+								int contrastStart{100};
+								if (m_dronTypes[dron].toString() == "CONTRAST_95")
+								{
+									contrastStart = 95;
+								}
+								else if (m_dronTypes[dron].toString() == "CONTRAST_65")
+								{
+									contrastStart = 65;
+								}
+								else if (m_dronTypes[dron].toString() == "CONTRAST_35")
+								{
+									contrastStart = 35;
+								}
+								else if (m_dronTypes[dron].toString() == "CONTRAST_5")
+								{
+									contrastStart = 5;
+								}
+								config[DRON_CONTRAST_START] = double(contrastStart);
+								config[DRON_CONTRAST_STOP] = double(contrastStart + 0.04);
+								config[DRON_CONTRAST_DELTA] = double(0.01);
+								config[DRON_NOISE_START] = double(i);
+								config[DRON_NOISE_STOP] = double(i + 0.04);
+								config[DRON_NOISE_DELTA] = double(0.01);
+							}
 
 							obj[CONFIG] = config;
 							arrObj[j] = obj;
