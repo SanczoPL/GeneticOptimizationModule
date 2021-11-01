@@ -576,9 +576,6 @@
 			{
 				"Used":
 				[
-					
-					
-
 					{"Name": "ViterbiFilter", "Parameters":[
 						{"Type": "Treck","Min": 1,"Max": 2},
 						{"Type": "Range","Min": 8,"Max": 8},

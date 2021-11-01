@@ -2,12 +2,12 @@
 	"General": 
 	{
 		"LogLevel": 0,
-		"ThreadsMax": 1,
+		"ThreadsMax": 50,
 		"Standalone": false
 	},
 	"Genetic":
 	{
-		"PopulationSize" : 5,
+		"PopulationSize" : 50,
 		"GraphType" : "",
 		"DronType" : "",
 		"BoundsType" : "",
