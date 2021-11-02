@@ -165,7 +165,7 @@ void Case::processing(const int iteration)
 		catch (cv::Exception& e)
 		{
 			const char* err_msg = e.what();
-			qDebug() << "exception caught: " << err_msg;
+			qDebug() << "exception caught in ProcessingModules: " << err_msg;
 		}
 		m_data.push_back((dataVec));
 
@@ -240,7 +240,7 @@ void Case::postprocessing()
 		catch (cv::Exception& e)
 		{
 			const char* err_msg = e.what();
-			qDebug() << "exception caught: " << err_msg;
+			qDebug() << "exception caught in PostProcessingModules: " << err_msg;
 		}
 		m_dataPostprocess.push_back((dataVec));
 		m_postTime += m_blockPostprocess[i]->getElapsedTime();
