@@ -150,7 +150,9 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							config[DRON_NOISE_STOP] = double(i + 0.04);
 							config[DRON_NOISE_DELTA] = double(0.01);
 
-							if (m_graphTypes[graf].toString() == "Graph_estimator" || m_graphTypes[graf].toString() == "Graph_estimator_with_filters")
+							if (m_graphTypes[graf].toString() == "Graph_estimator" || 
+								m_graphTypes[graf].toString() == "Graph_estimator_with_filters" ||
+								m_graphTypes[graf].toString() == "Graph_estimator_viterbi")
 							{
 								config[DRON_NOISE_START] = double(i);
 								config[DRON_NOISE_STOP] = double(i + 0.04);
@@ -161,7 +163,8 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 							}
 
 
-							if (m_graphTypes[graf].toString() == "Graph_estimator_with_filters_small_drons_contrast")
+							if (m_graphTypes[graf].toString() == "Graph_estimator_with_filters_small_drons_contrast" ||
+								m_graphTypes[graf].toString() == "Graph_estimator_with_viterbi_small_drons_contrast")
 							{
 								int contrastStart{100};
 								if (m_dronTypes[dron].toString() == "CONTRAST_95")

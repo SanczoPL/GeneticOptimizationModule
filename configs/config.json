@@ -11,7 +11,7 @@
 		"GraphType" : "",
 		"DronType" : "",
 		"BoundsType" : "",
-		"GraphTypes":[ "Graph_estimator_viterbi"],
+		"GraphTypes":[ "Graph_estimator_with_viterbi_small_drons_contrast"],
 		"GraphTypes2":[ "Graph_estimator_with_filters"],
 		"GraphTypesALL":[ "Graph_estimator", "Graph_estimator_with_filters", "Graph_estimator_with_filters_small_drons_contrast", 
 							"Graph_estimator_with_viterbi_small_drons_contrast" , "Graph_estimator_viterbi"],

@@ -3137,8 +3137,10 @@
 						{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
 						{"Type": "Threshold","Min": 0,"Max": 100,"IsDouble": 100},
 						{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true}
+					]},
+					{"Name": "BitwiseNot", "Parameters":[
+						{"Type": "BitwiseNot","Min": 0,"Max": 0}
 					]}
-
 				],
 				"NotUsed":
 				[
