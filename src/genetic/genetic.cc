@@ -4,6 +4,7 @@
 
 //#define DEBUG
 //#define GENETIC_OPERATION_DEBUG
+#define DEBUG_FITNESS_POPULATION
 
 constexpr auto GRAPH{ "Graph" };
 constexpr auto GENETIC{ "Genetic" };
@@ -354,6 +355,25 @@ void Genetic::iteration()
 	{
 		logPopulation(QString::number(m_populationIteration), m_geneticOperation.m_fitness[m_populationSize], m_fileLoggerTrain);
 	}
+	#ifdef DEBUG_FITNESS_POPULATION
+	double allFitness{0.0};
+	for(auto & fit : m_geneticOperation.m_fitness )
+	{
+		allFitness+=fit.fitness;
+	}
+	allFitness/= (m_populationSize-1);
+	Logger->debug(
+		"ID:{} All:{:f} B:{:f} (fn:{},fp:{},tn:{},tp:{}) time:{:3.0f}[ms] ",
+		QString::number(m_populationIteration).toStdString(),
+		allFitness,
+		m_geneticOperation.m_fitness[m_populationSize].fitness,
+		m_geneticOperation.m_fitness[m_populationSize].fn, 
+		m_geneticOperation.m_fitness[m_populationSize].fp,
+		m_geneticOperation.m_fitness[m_populationSize].tn, 
+		m_geneticOperation.m_fitness[m_populationSize].tp,
+		m_timer.getTimeMilli());
+
+	#endif
 	if (m_populationIteration >= m_maxIteration ||  m_bestNotChange >= m_maxBestNotChange || 
 		m_geneticOperation.m_fitness[m_populationSize].fitness >= m_fitnessThreshold)
 	{
