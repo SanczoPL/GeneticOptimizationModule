@@ -155,10 +155,10 @@ void MainLoop::createConfig(QJsonObject const& a_config)
 								m_graphTypes[graf].toString() == "Graph_estimator_viterbi")
 							{
 								config[DRON_NOISE_START] = double(i);
-								config[DRON_NOISE_STOP] = double(i + 0.04);
+								config[DRON_NOISE_STOP] = double(i + 0.01);
 								config[DRON_NOISE_DELTA] = double(0.01);
 								config[DRON_CONTRAST_START] = double(100);
-								config[DRON_CONTRAST_STOP] = double(100 + 0.04);
+								config[DRON_CONTRAST_STOP] = double(100 + 0.01);
 								config[DRON_CONTRAST_DELTA] = double(0.01);
 							}
 

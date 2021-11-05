@@ -579,13 +579,14 @@
 					{"Name": "ViterbiFilter", "Parameters":[
 						{"Type": "Treck","Min": 1,"Max": 2},
 						{"Type": "Range","Min": 8,"Max": 8},
-						{"Type": "AbsFilter", "Min": 1,"Max": 1, "IsBool":true},
-						{"Type": "Threshold","Min": 95,"Max": 100,"IsDouble": 100},
+						{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
+						{"Type": "Threshold","Min": 70,"Max": 100,"IsDouble": 100},
 						{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true},
+						{"Type": "BitwiseNot", "Min": 0,"Max": 1, "IsBool":true},
 						{"Type": "ClusterWidth","Min": 20,"Max": 20},
 						{"Type": "ClusterHeight","Min": 20,"Max": 20},
-						{"Type": "ShiftWidth","Min": 0,"Max": 0},
-						{"Type": "ShiftHeight","Min": 0,"Max": 0},
+						{"Type": "ShiftWidth","Min": 20,"Max": 20},
+						{"Type": "ShiftHeight","Min": 20,"Max": 20},
 						{"Type": "VelocityFilter", "Min": 0,"Max": 0, "IsBool":true}
 					]}
 				],
@@ -595,7 +596,8 @@
 					{"Type": "Range","Min": 8,"Max": 8},
 					{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "Threshold","Min": 0,"Max": 100,"IsDouble": 100},
-					{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true}
+					{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true},
+					{"Type": "BitwiseNot", "Min": 0,"Max": 1, "IsBool":true}
 				]}]
 			},
 			"Estimator": 
@@ -3120,23 +3122,16 @@
 				"Used":
 				[
 					{"Name": "ViterbiFilter", "Parameters":[
-						{"Type": "Treck","Min": 1,"Max": 3},
-						{"Type": "Range","Min": 8,"Max": 15},
-						{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
-						{"Type": "Threshold","Min": 0,"Max": 100,"IsDouble": 100},
+						{"Type": "Treck","Min": 1,"Max": 2},
+						{"Type": "Range","Min": 8,"Max": 8},
+						{"Type": "AbsFilter", "Min": 1,"Max": 1, "IsBool":true},
+						{"Type": "Threshold","Min": 95,"Max": 100,"IsDouble": 100},
 						{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true},
-						{"Type": "ClusterWidth","Min": 10,"Max": 40},
-						{"Type": "ClusterHeight","Min": 10,"Max": 40},
+						{"Type": "ClusterWidth","Min": 20,"Max": 20},
+						{"Type": "ClusterHeight","Min": 20,"Max": 20},
 						{"Type": "ShiftWidth","Min": 0,"Max": 0},
 						{"Type": "ShiftHeight","Min": 0,"Max": 0},
-						{"Type": "VelocityFilter", "Min": 0,"Max": 1, "IsBool":true}
-					]},
-					{"Name": "VelocityFilter", "Parameters":[
-						{"Type": "Treck","Min": 1,"Max": 3},
-						{"Type": "Range","Min": 8,"Max": 15},
-						{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
-						{"Type": "Threshold","Min": 0,"Max": 100,"IsDouble": 100},
-						{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true}
+						{"Type": "VelocityFilter", "Min": 0,"Max": 0, "IsBool":true}
 					]},
 					{"Name": "BitwiseNot", "Parameters":[
 						{"Type": "BitwiseNot","Min": 0,"Max": 0}
@@ -3144,6 +3139,13 @@
 				],
 				"NotUsed":
 				[
+					{"Name": "VelocityFilter", "Parameters":[
+						{"Type": "Treck","Min": 1,"Max": 3},
+						{"Type": "Range","Min": 8,"Max": 15},
+						{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
+						{"Type": "Threshold","Min": 0,"Max": 100,"IsDouble": 100},
+						{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true}
+					]},
 					{"Name": "MedianBlur", "Parameters":[{"Type": "KernelSize","Min": 1,"Max": 5,"IsOdd": true}
 					]},
 					{"Name": "Blur", "Parameters":[
