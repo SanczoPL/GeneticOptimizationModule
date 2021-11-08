@@ -30,8 +30,6 @@ namespace gtest_graph_benchmark
 	{
 		cv::TickMeter m_timer;
 		m_timer.start();
-  
-
 		Graph<Processing, _data> m_graph_processing;
 		std::vector<Processing*> m_block;
 		std::vector<PostProcess*> m_blockPostprocess;

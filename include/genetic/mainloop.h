@@ -12,7 +12,7 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc.hpp>
 
-#include "genetic/case.h"
+#include "case.h"
 #include "data.h"
 #include "genetic/genetic.h"
 #include "genetic/structures.h"

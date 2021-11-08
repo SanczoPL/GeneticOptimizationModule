@@ -12,7 +12,7 @@
 
 #include "processing.h"
 #include "genetic/structures.h"
-#include "genetic/case.h"
+#include "case.h"
 #include "data.h"
 #include "genetic/geneticoperation.h"
 
