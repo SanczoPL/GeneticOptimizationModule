@@ -583,22 +583,32 @@
 						{"Type": "Threshold","Min": 1,"Max": 100,"IsDouble": 100},
 						{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true},
 						{"Type": "BitwiseNot", "Min": 0,"Max": 1, "IsBool":true},
-						{"Type": "ClusterWidth","Min": 20,"Max": 20},
-						{"Type": "ClusterHeight","Min": 20,"Max": 20},
+						{"Type": "ClusterWidth","Min": 20,"Max": 150},
+						{"Type": "ClusterHeight","Min": 20,"Max": 150},
 						{"Type": "ShiftWidth","Min": 20,"Max": 20},
 						{"Type": "ShiftHeight","Min": 20,"Max": 20},
-						{"Type": "VelocityFilter", "Min": 0,"Max": 0, "IsBool":true}
-					]}
+						{"Type": "VelocityFilter", "Min": 0,"Max": 0, "IsBool":true},
+					]},
+					{"Name": "VelocityFilter", "Parameters":[
+						{"Type": "Treck","Min": 1,"Max": 2},
+						{"Type": "Range","Min": 8,"Max": 8},
+						{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
+						{"Type": "Threshold","Min": 0,"Max": 100,"IsDouble": 100},
+						{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true},
+						{"Type": "BitwiseNot", "Min": 0,"Max": 1, "IsBool":true}
+						]}
 				],
 				"NotUsed":
-				[{"Name": "VelocityFilter", "Parameters":[
+				[
+					{"Name": "VelocityFilter", "Parameters":[
 					{"Type": "Treck","Min": 1,"Max": 2},
 					{"Type": "Range","Min": 8,"Max": 8},
 					{"Type": "AbsFilter", "Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "Threshold","Min": 0,"Max": 100,"IsDouble": 100},
 					{"Type": "Normalize", "Min": 0,"Max": 1, "IsBool":true},
 					{"Type": "BitwiseNot", "Min": 0,"Max": 1, "IsBool":true}
-				]}]
+					]}
+				]
 			},
 			"Estimator": 
 			{
