@@ -587,7 +587,7 @@
 						{"Type": "ClusterHeight","Min": 20,"Max": 150},
 						{"Type": "ShiftWidth","Min": 20,"Max": 20},
 						{"Type": "ShiftHeight","Min": 20,"Max": 20},
-						{"Type": "VelocityFilter", "Min": 0,"Max": 0, "IsBool":true},
+						{"Type": "VelocityFilter", "Min": 0,"Max": 0, "IsBool":true}
 					]},
 					{"Name": "VelocityFilter", "Parameters":[
 						{"Type": "Treck","Min": 1,"Max": 2},
