@@ -59,21 +59,21 @@
         "Active": 0,
         "Type": "Comapre",
         "Next":[{"Name": "B1", "Active": 3, "Signal":0}],
-        "Prev":[{"Name": "IN", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT1", "Active": -1, "Signal":0}],
         "Config":{"Name": "None"}
     },{
         "Name": "GT",
         "Active": 1,
         "Type": "Comapre",
         "Next":[{"Name": "B1", "Active": 3, "Signal":0}],
-        "Prev":[{"Name": "IN", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT2", "Active": -1, "Signal":0}],
         "Config":{"Name": "None"}
     },{
         "Name": "INPUT",
         "Active": 2,
         "Type": "Comapre",
         "Next":[{"Name": "B1", "Active": 3, "Signal":0}],
-        "Prev":[{"Name": "IN", "Active": -1, "Signal":0}],
+        "Prev":[{"Name": "INPUT3", "Active": -1, "Signal":0}],
         "Config":{"Name": "None"}
     },{
         "Name": "ROI",
